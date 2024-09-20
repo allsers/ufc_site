@@ -1,8 +1,11 @@
 <svelte:head>
-	<title>About</title>
+	<title>UFC</title>
 	<meta name="description" content="About this app" />
 </svelte:head>
 
+<script lang="ts">
+	console.log('Welcome to events')
+</script>
 <div class="text-column">
 	<h1>About this app</h1>
 
