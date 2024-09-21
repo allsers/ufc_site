@@ -138,7 +138,7 @@
 
 	#lightning1 {
 		position: absolute;
-		height: 50rem;
+		height: 55vh;
 		z-index: -1;
 		margin: -18rem -3.5rem;
 	}
@@ -146,7 +146,7 @@
 	#lightning2 {
 		position: absolute;
   		transform: scaleX(-1);
-		height: 50rem;
+		height: 55vh;
 		z-index: -1;
 		margin: -12.75rem -16.5rem;
 	}
@@ -225,14 +225,14 @@
 		transform: translateX(-40%);
 	}
 	#img1, #img3 {
-		width: 35rem;
-		height: 35rem;
+		width: 21.5vw;
+		height: 21.5vw;
 		object-fit: cover;
 	}
 
 	#img2 {
-		width: 40rem;
-		height: 40rem;
+		width: 25vw;
+		height: 25svw;
 		object-fit: cover;
 	}
 
