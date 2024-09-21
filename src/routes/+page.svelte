@@ -61,34 +61,35 @@
 </section>
 
 <section id = "section2">
-
-	<div class="left">
-		<img src={lightning} id = "lightning1" alt="">
-		<img id = 'featherweight' src={featherweight} alt="Featherweight ufc fighter">
-	</div>
-
-	<div class="card">
-		<div class="textbox">
-			<button on:click={() => goto('/athletes')}>Check Out Our Fighters!</button>
+	<div class="flex">
+		<div class="left">
+			<img src={lightning} id = "lightning1" alt="">
+			<img id = 'featherweight' src={featherweight} alt="Featherweight ufc fighter">
 		</div>
-		<div class="fighters">
-			<div class="images">
-				<div class="image1">
-					<img id="img1" src={fighter_left} alt="img1">
-				</div>
-				<div class="image2">
-					<img id="img2" src={fighter_middle} alt="img2">	
-				</div>
-				<div class="image3">
-					<img id="img3" src={fighter_right} alt="img3">
+		<div class="card">
+			<div class="textbox">
+				<button on:click={() => goto('/athletes')}>Check Out Our Fighters!</button>
+			</div>
+			<div class="fighters">
+				<div class="images">
+					<div class="image1">
+						<img id="img1" src={fighter_left} alt="img1">
+					</div>
+					<div class="image2">
+						<img id="img2" src={fighter_middle} alt="img2">	
+					</div>
+					<div class="image3">
+						<img id="img3" src={fighter_right} alt="img3">
+					</div>
 				</div>
 			</div>
 		</div>
+		<div class="right">
+			<img src={lightning} id = "lightning2" alt="">
+			<img id = 'heavyweight' src={heavyweight} alt="Heavyweight ufc fighter">
+		</div>	
 	</div>
-	<div class="right">
-		<img src={lightning} id = "lightning2" alt="">
-		<img id = 'heavyweight' src={heavyweight} alt="Heavyweight ufc fighter">
-	</div>
+
 	
 </section>
 
@@ -108,7 +109,7 @@
 		position: absolute;
 		background-color: rgba(0, 0, 0, var(--darkness, 0));
 		width: 100%;
-		height: 100%;
+		height: 100vh;
 		z-index: 2;
 		top: 0;
 		left: 0;
@@ -128,19 +129,22 @@
 	#heavyweight {
 		height: 85vh;
 		align-self: flex-end;
-		transform: translateX(-25%);
-		margin: 0 150px;
 	}
 
 	.left, .right {
 		align-self: flex-end;
+	}
+	
+	.flex {
+		display: flex;
+		overflow: hidden;
 	}
 
 	#lightning1 {
 		position: absolute;
 		height: 55vh;
 		z-index: -1;
-		margin: -18rem -3.5rem;
+		margin: -18vh -3.5vw;
 	}
 	
 	#lightning2 {
@@ -148,8 +152,9 @@
   		transform: scaleX(-1);
 		height: 55vh;
 		z-index: -1;
-		margin: -12.75rem -16.5rem;
+		margin: -16vh -7.1vw;
 	}
+
 	#featherweight {
 		height: 80vh;
 		margin: 0 -9.5rem;
