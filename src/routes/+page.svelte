@@ -89,8 +89,6 @@
 			<img id = 'heavyweight' src={heavyweight} alt="Heavyweight ufc fighter">
 		</div>	
 	</div>
-
-	
 </section>
 
 <style>
@@ -121,6 +119,7 @@
 		height: 100vh;
 		width: 100%;
 		display: flex;
+		flex-direction: column;
 		text-transform: uppercase;
 		z-index: 2;
 		overflow: hidden;
@@ -129,15 +128,19 @@
 	#heavyweight {
 		height: 85vh;
 		align-self: flex-end;
+		margin-right: 10vw;
 	}
 
 	.left, .right {
 		align-self: flex-end;
 	}
-	
+
+
 	.flex {
 		display: flex;
 		overflow: hidden;
+		justify-content: center;
+		height: 100vh;
 	}
 
 	#lightning1 {
@@ -157,8 +160,9 @@
 
 	#featherweight {
 		height: 80vh;
-		margin: 0 -9.5rem;
+		margin-left: 10vw;
 	}
+	
 	#section2 > * {
 		opacity: 0;
 		transition: opacity 0.5s ease, transform 0.5s ease;
@@ -169,14 +173,14 @@
 		align-self: center;
 		color: var(--color-text1);
 		font-family: var(--font-bebas);
-		font-size: 3.25rem;
+		font-size: 2.2em;
 		position: fixed;
 		z-index: 1;
 	}
 
 	button {
 		transform: translateY(55%);
-		font-size: 2.25rem;
+		font-size: 2.25em;
 		background-color: #17161e;
 		align-self: center;
 		color: var(--color-text1);
