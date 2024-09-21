@@ -46,7 +46,7 @@
 		position: relative;
 		padding: 0;
 		margin: 0;
-		height: 3.5em;
+		height: 3.5rem;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;

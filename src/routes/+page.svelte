@@ -126,7 +126,7 @@
 	}
 
 	#heavyweight {
-		height: 70rem;
+		height: 85vh;
 		align-self: flex-end;
 		transform: translateX(-25%);
 		margin: 0 150px;
@@ -151,7 +151,7 @@
 		margin: -12.75rem -16.5rem;
 	}
 	#featherweight {
-		height: 65rem;
+		height: 80vh;
 		margin: 0 -9.5rem;
 	}
 	#section2 > * {
