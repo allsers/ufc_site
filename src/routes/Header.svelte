@@ -5,7 +5,6 @@
 <header>
 	
 	<nav>
-
 		<ul>			
 			<li aria-current={$page.url.pathname === '/events' ? 'page' : undefined}>
 				<a href="/events">Events</a>
@@ -28,7 +27,10 @@
 		width: 100%;
 		flex-grow: 1;
 		position: fixed;
-		z-index: 3;
+		top: 0;
+		left: 0;
+		width: 100%;
+		z-index: 1000;
 	}
 
 
@@ -36,7 +38,7 @@
 		width: 100%;
 		display: flex;
 		justify-content: center;
-		--background: #0D0E1C;
+		background-image: radial-gradient(circle, #0b0b16 70%, #0f172c 100%);
 	}
 
 	ul {
@@ -44,7 +46,7 @@
 		position: relative;
 		padding: 0;
 		margin: 0;
-		height: 3em;
+		height: 3.5em;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
@@ -53,21 +55,9 @@
 	}
 
 	li {
-		padding: 1%;
+		padding: 5%;
 		position: relative;
 		height: 100%;
-	}
-
-	li[aria-current='page']::before {
-		--size: 6px;
-		content: '';
-		width: 0;
-		height: 0;
-		position: absolute;
-		top: 0;
-		left: calc(50% - var(--size));
-		border: var(--size) solid transparent;
-		border-top: var(--size) solid var(--color-theme-1);
 	}
 
 	nav a {
@@ -77,16 +67,16 @@
 		padding: 0 0.5rem;
 		color: var(--color-text1);
 		font-weight: 700;
-		font-size: 1.2rem;
+		font-size: 1.3rem;
 		text-transform: uppercase;
-		letter-spacing: 0.1em;
+		letter-spacing: 0.075em;
 		text-decoration: none;
 		transition: color 0.2s linear;
 		
 	}
 	nav ul li:nth-child(2) a {
 		font-family: var(--font-header);
-		font-size: 2rem;
+		font-size: 2.5rem;
 	}
 
 

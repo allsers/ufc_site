@@ -20,7 +20,7 @@
 	--color-theme-1: #85132B;
 	--color-theme-2: #22212A;
 	--color-text: rgba(0, 0, 0, 0.7);
-	--color-text1: rgba(255, 255, 255, 0.8);
+	--color-text1: rgba(255, 255, 255, 0.9);
 	--column-width: 42rem;
 	--column-margin-top: 4rem;
 	font-family: var(--font-body);
@@ -40,6 +40,24 @@ body {
 			rgba(255, 255, 255, 0) 100%
 		),
 		linear-gradient(180deg, var(--color-bg-0) 0%, var(--color-bg-1) 15%, var(--color-bg-2) 50%);
+}
+
+body::-webkit-scrollbar {
+    width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+	background: #0b0b16;
+	border-radius: 2px;
+}
+
+body::-webkit-scrollbar-thumb {
+	background: #141427;
+	border-radius: 2px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+	background: #191931;
 }
 
 html, body {

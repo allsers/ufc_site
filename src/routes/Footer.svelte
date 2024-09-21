@@ -61,7 +61,7 @@
 	}
 	.sep {
 		padding-left: 50px;
-		padding-right: 700px;
+		padding-right: 65vw;
 	}
 	.container {
 		flex-grow: 1;
