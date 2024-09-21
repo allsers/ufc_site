@@ -127,18 +127,25 @@
 
 	#heavyweight {
 		height: 85vh;
-		align-self: flex-end;
-		margin-right: 10vw;
+		align-self: flex-end;	
+	}
+
+	#featherweight {
+		height: 80vh;
+		justify-self: flex-start;
+		transform: translateX(15%);
 	}
 
 	.left, .right {
+		display: flex;
 		align-self: flex-end;
+		flex-direction: column;
+		object-fit: contain;
 	}
-
 
 	.flex {
 		display: flex;
-		overflow: hidden;
+		overflow-x: hidden;
 		justify-content: center;
 		height: 100vh;
 	}
@@ -147,20 +154,17 @@
 		position: absolute;
 		height: 55vh;
 		z-index: -1;
-		margin: -18vh -3.5vw;
+		margin: -21vh 10vw;
 	}
 	
 	#lightning2 {
 		position: absolute;
   		transform: scaleX(-1);
 		height: 55vh;
+		width: 21.9vw;
 		z-index: -1;
 		margin: -16vh -7.1vw;
-	}
-
-	#featherweight {
-		height: 80vh;
-		margin-left: 10vw;
+		object-fit: cover;
 	}
 	
 	#section2 > * {
