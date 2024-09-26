@@ -105,7 +105,7 @@
 	#section1::before {
 		content: '';
 		position: absolute;
-		background-color: rgba(0, 0, 0, var(--darkness, 0));
+		background-color: rgba(0, 0, 0, var(--darkness));
 		width: 100%;
 		height: 100vh;
 		z-index: 2;
@@ -116,13 +116,13 @@
 	#section2 {
 		background: rgb(38,38,78);
 		background: radial-gradient(circle, rgba(38,38,78,1) 0%, rgba(9,9,19,1) 45%);
-		height: 100vh;
 		width: 100%;
 		display: flex;
 		flex-direction: column;
 		text-transform: uppercase;
 		z-index: 2;
 		overflow: hidden;
+		object-fit: contain;
 	}
 
 	#heavyweight {
@@ -152,9 +152,11 @@
 
 	#lightning1 {
 		position: absolute;
+		object-fit: contain;
 		height: 55vh;
 		z-index: -1;
 		margin: -21vh 10vw;
+		overflow: hidden;
 	}
 	
 	#lightning2 {
