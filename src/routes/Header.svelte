@@ -1,21 +1,19 @@
 <script>
 	import { page } from '$app/stores';
-	import logo from '$lib/images/logo.png';
 </script>
 
 <header>
 	
 	<nav>
 		<ul>			
-			<li aria-current={$page.url.pathname === '/crew' ? 'page' : undefined}>
-				<a href="/crew">Crew</a>
+			<li aria-current={$page.url.pathname === '/events' ? 'page' : undefined}>
+				<a href="/events">Events</a>
 			</li>
-			<li id = "flex" aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
-				<img id="logo" src="{logo}" alt="logo">
-				<a href="/">Vargrclan</a>
+			<li aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
+				<a href="/">UFC</a>
 			</li>
-			<li aria-current={$page.url.pathname === '/shop' ? 'page' : undefined}>
-				<a href="/shop">Shop</a>
+			<li aria-current={$page.url.pathname === '/athletes' ? 'page' : undefined}>
+				<a href="/athletes">Athletes</a>
 			</li>
 		</ul>
 
@@ -33,15 +31,14 @@
 		left: 0;
 		width: 100%;
 		z-index: 1000;
-		box-shadow: 0 3px 20px rgba(0, 0, 0, 0.25);
 	}
+
 
 	nav {
 		width: 100%;
 		display: flex;
 		justify-content: center;
-		background: rgb(22,59,88);
-		background: radial-gradient(circle, rgba(22,59,88,1) 66%, rgba(51,82,107,1) 100%);
+		background-image: radial-gradient(circle, #0b0b16 70%, #0f172c 100%);
 	}
 
 	ul {
@@ -59,9 +56,8 @@
 
 	li {
 		padding: 5%;
-		position: relative;	
+		position: relative;
 		height: 100%;
-		
 	}
 
 	nav a {
@@ -70,26 +66,21 @@
 		align-items: center;
 		padding: 0 0.5rem;
 		color: var(--color-text1);
-		font-weight: 900;
-		font-size: 1.5rem;
+		font-weight: 700;
+		font-size: 1.3rem;
 		text-transform: uppercase;
 		letter-spacing: 0.075em;
 		text-decoration: none;
 		transition: color 0.2s linear;
-		font-family: var(--font-header);
-		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
 		
 	}
-	#flex {
-		display: flex;
+	nav ul li:nth-child(2) a {
+		font-family: var(--font-header);
+		font-size: 2.5rem;
 	}
 
+
 	a:hover {
-		color: #95d2e6;
-	}
-	#logo {
-		align-self: center;
-		height: 45px;
-		width: 45px;
+		color: var(--color-theme-1);
 	}
 </style>
