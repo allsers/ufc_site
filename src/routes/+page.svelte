@@ -1,105 +1,89 @@
 <script lang="ts">
 	import background_image from '$lib/images/BackgroundImage.png';
-	import fighter_middle from '$lib/images/fighter-middle.png';
-	import fighter_left from '$lib/images/fighter-left.png';
-	import fighter_right from '$lib/images/fighter-right.png';
-	import heavyweight from '$lib/images/heavyweight.png';
-	import featherweight from '$lib/images/featherweight.png'
-	import lightning from '$lib/images/lightning.png'
-	
+	import wood_texture from '$lib/images/wood-texture.png';
+	import norse_image from '$lib/images/norse.png';
+	import vikingsymbol from '$lib/images/vikingsymbol.png';
+	import bluebanner from '$lib/images/left-banner.png';
+	import shield from '$lib/images/vikingetogt_skjold.png';
+	import axe from '$lib/images/vikingetogt_axe.png';
+	import leikislogo1 from '$lib/images/leikislogo1.png';
+	import leikislogo2 from '$lib/images/leikislogo2.png';
+	import flyer from '$lib/images/flyer.png';
 	import { onMount } from 'svelte';
-    import { goto } from '$app/navigation';
 
     onMount(() => {
-
 		window.addEventListener('scroll', function() {
 			const scrollPos = window.scrollY;
 			const maxScroll = document.documentElement.scrollHeight - this.window.innerHeight;
 			const darkness = scrollPos / maxScroll
 			this.document.documentElement.style.setProperty('--darkness', `${darkness}`);
 		})
-
-
-		const section2 = document.getElementById('section2');
-        const options = {
-			root: null,
-			rootMargin: '50% 0px 10% 0px',
-			threshold: 1,
-		}
-		const observer = new IntersectionObserver((entries) => {
-			entries.forEach((entry) => {
-				if (entry.isIntersecting) {
-
-					children?.forEach((child) => {
-						(child as HTMLElement).style.opacity = "1";
-					});
-
-				} else {
-					children?.forEach((child) => {
-						(child as HTMLElement).style.transition = 'opacity 0.5s ease';
-						(child as HTMLElement).style.opacity = '0';
-					});
-				}
-			})
-		}, options);
-		const children = section2?.querySelectorAll('*');
-		children?.forEach((child) => observer.observe(child));
-
-		return () => {
-			children?.forEach((child) => observer.unobserve(child));
-		}
     });
 	
 </script>
 
 <svelte:head>
-	<title>UFC</title>
-	<meta name="description" content="UFC Home Page" />
+	<title>Vargrclan</title>
+	<meta name="description" content="Viking home page" />
 </svelte:head>
 <section id = "section1" style='background-image: url({background_image});'>
-	<h1>As Real As It Gets.</h1>
+	<h1>Óttalausir Ráðar Norðr</h1>
+	<h2 id="eng-slogan">Fearless raiders of the north</h2>
 </section>
 
-<section id = "section2">
-	<div class="flex">
-		<div class="left">
-			<img src={lightning} id = "lightning1" alt="">
-			<img id = 'featherweight' src={featherweight} alt="Featherweight ufc fighter">
+<section id = "section2" style='background-image: url({norse_image});'>
+	<div class="flex" style='background-image: url({wood_texture});'>
+		<h2>Our History</h2>
+		<div class="text-content">
+			<p class="full-text">
+				The Vargrclan has a storied history rooted in the fierce spirit of the Viking Age. Emerging from the rugged fjords of Scandinavia, this clan became renowned for their seafaring prowess and warrior culture. Led by their formidable chieftain, Eirik Ulfrhjarta (Wolfheart), the Vargrclan embarked on daring raids and explorations across the North Sea, establishing a legacy that would echo through generations. They upheld traditions that honored their ancestors while adapting to new realities, revering the sea and performing rituals before voyages to ensure safe passage. Today, the legacy of the Vargrclan endures, embodying the courage and resilience that defined their journey.
+			</p>
+			<p class = "short-text">
+				The Vargrclan has a rich Viking heritage, known for our seafaring skills and warrior culture. Under chieftain Eirik Ulfrhjarta, we undertook daring raids across the North Sea. We honor our ancestors with rituals for safe voyages. Our enduring legacy embodies the courage and resilience that define us.
+			</p>
 		</div>
-		<div class="card">
-			<div class="textbox">
-				<button on:click={() => goto('/athletes')}>Check Out Our Fighters!</button>
+	</div>
+</section>
+
+<section id = "section3" style='background-image: url({vikingsymbol});'>
+	<div class="showcase">
+		<div class="imgs">
+			<div class="side">
+				<img id="banner" src="{bluebanner}" alt="banner">
 			</div>
-			<div class="fighters">
-				<div class="images">
-					<div class="image1">
-						<img id="img1" src={fighter_left} alt="img1">
-					</div>
-					<div class="image2">
-						<img id="img2" src={fighter_middle} alt="img2">	
-					</div>
-					<div class="image3">
-						<img id="img3" src={fighter_right} alt="img3">
-					</div>
+			<div class="mid">
+				<h2 style="background-image: url({wood_texture});" id="showcase-header">Showcase</h2>
+				<img src="{shield}" alt="shield" id="shield">
+				<div class="row">
+					<img id="leikislogo" src="{leikislogo1}" alt="logo1">
+					<img src="{axe}" alt="axe">
+					<img id="leikislogo" src="{leikislogo2}" alt="logo2">
 				</div>
 			</div>
+			<div class="side">
+				<img id="banner" src="{bluebanner}" alt="banner">
+			</div>
 		</div>
-		<div class="right">
-			<img src={lightning} id = "lightning2" alt="">
-			<img id = 'heavyweight' src={heavyweight} alt="Heavyweight ufc fighter">
-		</div>	
+		<div class="center">
+			<img id="flyer" src="{flyer}" alt="flyer">
+		</div>
+		
 	</div>
 </section>
 
 <style>
 	#section1 {
+		background-repeat: no-repeat;
 		background-attachment: fixed;
-		background-size:cover;
+		background-size: cover;
+		background-position: center 55px;
 		margin: 0;
 		min-height: 100vh;
 		max-width: 100vw;
 		display: block;
 		display: flex;
+		flex-direction: column;
+		justify-content: center;
 	}
 
 	#section1::before {
@@ -114,143 +98,201 @@
 	}
 
 	#section2 {
-		background: rgb(38,38,78);
-		background: radial-gradient(circle, rgba(38,38,78,1) 0%, rgba(9,9,19,1) 45%);
+		background-size: cover;
+		padding-top: 6%;
+	
 		width: 100%;
 		display: flex;
 		flex-direction: column;
-		text-transform: uppercase;
+		flex-wrap: wrap;
+		align-items: flex-end;
 		z-index: 2;
 		overflow: hidden;
-		object-fit: contain;
-	}
-
-	#heavyweight {
 		height: 85vh;
-		align-self: flex-end;	
 	}
-
-	#featherweight {
-		height: 80vh;
-		justify-self: flex-start;
-		transform: translateX(15%);
-	}
-
-	.left, .right {
+	#section3 {
+		width: 100%;
 		display: flex;
-		align-self: flex-end;
 		flex-direction: column;
-		object-fit: contain;
+		flex-wrap: wrap;
+		align-items: flex-end;
+		z-index: 2;
+		overflow: hidden;
+		height: 180vh;
+		background-color: white;
+
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+	}
+	@media (max-width: 1105px) {
+		#section2 {
+			height: 92.5vh;
+			background-position: -36vw;
+		}
+	}
+
+	@media (max-width: 525px) {
+		#section2 {
+			height: 92.5vh;
+			background-position: -77.5vw;
+		}
 	}
 
 	.flex {
 		display: flex;
+		background-color: rgb(178, 167, 154);
+		flex-direction: column;
+
+		align-items: center;
+		text-align: center;
+		background-size: cover;
+		background-position: center;
 		overflow-x: hidden;
 		justify-content: center;
-		height: 100vh;
+		width: 50%;
+		border-radius: 5%;
+
+		box-shadow: 0 3px 20px rgba(0, 0, 0, 0.5);
+		
 	}
 
-	#lightning1 {
-		position: absolute;
-		object-fit: contain;
-		height: 55vh;
-		z-index: -1;
-		margin: -21vh 10vw;
-		overflow: hidden;
+	.showcase {
+		text-align: center;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-content: space-between;
+		overflow-x: hidden;
+		justify-content: center;
 	}
-	
-	#lightning2 {
-		position: absolute;
-  		transform: scaleX(-1);
-		height: 55vh;
-		width: 21.9vw;
-		z-index: -1;
-		margin: -16vh -7.1vw;
-		object-fit: cover;
+	.row {
+		justify-content: space-around;
+		align-items: center;
+		display: flex;
+		width: 100%;
+		padding-bottom: 5%;
 	}
-	
-	#section2 > * {
-		opacity: 0;
-		transition: opacity 0.5s ease, transform 0.5s ease;
+	.imgs {
+		height: 100%;
+		width: 100%;
+		display: flex;
+
+		justify-content: space-between;
+		
+	}
+	.side {
+		display: flex;
+		flex-direction: column;
+		justify-self: center;
+	}
+	#leikislogo {
+		width: 250px;
+		height: 250px;
+	}
+	#shield {
+		display: flex;
+		align-self: center;
+		width: 300px;
+		height: 300px;
+	}
+	#banner {
+		max-width: 275px;
+		border-radius: 1%;
+		box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+	}
+	.center {
+		width: 100vw;
+		display: flex;
+		justify-content: center;
+	}
+	#flyer {
+		display: flex;
+		justify-self: center;
+		max-width: 500px;
+		box-shadow: 0 5px 20px rgba(0, 0, 0, 0.75);
+
+	}
+	@media (max-width: 1215px) {
+		.side {
+			display: none;
+		}
+		.imgs {
+			justify-content: center;
+		}
+	}
+	.mid {
+		display: flex;
+		text-align: center;
+		flex-wrap: wrap;
+		flex-direction: column;
+		justify-self: center;
+	}
+	#showcase-header {
+		background-size: cover;
+		background-position: center;
+		display: flex;
+		font-family: var(--font-header);
+		align-self: center;
+		border-radius: 4%;
+		padding: 2%;
+		padding-left: 20%;
+		padding-right: 20%;
+		box-shadow: 0 3px 20px rgba(0, 0, 0, 0.5);
 	}
 
 	h1 {
 		width: 100%;
 		align-self: center;
-		color: var(--color-text1);
-		font-family: var(--font-bebas);
+		color: #ffffff;
+		font-family: var(--font-header);
 		font-size: 2.2em;
 		position: fixed;
 		z-index: 1;
+		text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
 	}
 
-	button {
-		transform: translateY(55%);
-		font-size: 2.25em;
-		background-color: #17161e;
-		align-self: center;
-		color: var(--color-text1);
-		font-family: var(--font-bebas);
-		cursor: pointer;
-		z-index: 2;
-		padding: 12px 24px;
-		border: none;
-		border-radius: 2.5px;
-		transition: all 0.5s ease;
-	}
-	button:hover {
-		transform: scale(101%) translateY(55%);
-	}
-	.textbox {
+	#eng-slogan {
+		color: #efefef;
+		margin-top: 100px;
 		display: flex;
+		position: fixed;
+		align-self: center;
 		justify-content: center;
+		text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+	}
+	h2 {
+		display: flex;
+		justify-self: center;
+		text-align: center;
+		font-family: var(--font-norse);
+		color: #ffffff;
 		
 	}
-
-	.fighters {
-		width: min(800px,90%);
+	.text-content {
+		padding: 1.5%;
+	}
+	p {
+		font-family: var(--font-norse);
+		color: #ffffff;
 		display: flex;
-		flex-direction: row;
-		justify-content: center;
+		font-size: 1.2rem;
+		padding: 1%;
 	}
-
-	.card {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: center;
-		align-self: center;
-		height: 57.5vh;
-		width: 100vw;
+	@media only screen and (max-width: 600px) {
+		.full-text {
+			display: none;
+		}
+		.short-text {
+			display: block; 
+		}
 	}
-
-	.images {
-		display: flex;
-		justify-content: center;
-		align-items: center;
+	@media only screen and (min-width: 600px) {
+		.full-text {
+			display: block;
+		}
+		.short-text {
+			display: none;
+		}
 	}
-
-	img {
-		border-radius: 2.5px;
-	}
-	.image1 {
-		transform: translateX(40%);
-	}
-	.image2 {
-		z-index: 1;
-	}
-	.image3 {
-		transform: translateX(-40%);
-	}
-	#img1, #img3 {
-		width: 21.5vw;
-		height: 21.5vw;
-		object-fit: cover;
-	}
-
-	#img2 {
-		width: 25vw;
-		height: 25svw;
-		object-fit: cover;
-	}
-
 </style>
