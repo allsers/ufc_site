@@ -196,9 +196,11 @@
 		padding: 12px 24px;
 		border: none;
 		border-radius: 2.5px;
-		transition: all 0.3s ease;
+		transition: all 0.5s ease;
 	}
-
+	button:hover {
+		transform: scale(101%) translateY(55%);
+	}
 	.textbox {
 		display: flex;
 		justify-content: center;
@@ -206,7 +208,7 @@
 	}
 
 	.fighters {
-		width: 100%;
+		width: min(800px,90%);
 		display: flex;
 		flex-direction: row;
 		justify-content: center;
