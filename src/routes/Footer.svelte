@@ -1,66 +1,67 @@
 <script>
 	import { page } from '$app/stores';
-	import logo from '$lib/images/leikislogo2.png';
 </script>
 
 <footer>
 	<div class="container">
 		<div class="sep">
-			<div class="logo">
-				<img src="{logo}" id = "logo" alt = "logo">
-				<h1>Vargrclan</h1>
-			</div>
-			
-			<p>&copy; 2024 Vargrclan</p>
+			<h1>UFC</h1>
 		</div>
 		<div class="row">
 			<div class="footer-col">
-				<h4>Vargrclan</h4>
+				<h4>UFC</h4>
 				<ul>
 					<li><a href="/">Home</a></li>
-					<li><a href="/crew">Recruitment</a></li>
-					<li><a href="/shop">Shop</a></li>
+					<li><a href="/events">Events</a></li>
+					<li><a href="/athletes">Athletes</a></li>
 				</ul>
 			</div>
-		
+			<div class="footer-col">
+				<h4>Social Media</h4>
+				<ul>
+					<li><a href="https://www.facebook.com/UFC/">Facebook</a></li>
+					<li><a href="https://www.instagram.com/ufc/">Instagram</a></li>
+					<li><a href="https://www.tiktok.com/@ufc">TikTok</a></li>
+					<li><a href="https://www.twitter.com/@ufc">Twitter</a></li>
+					<li><a href="https://www.youtube.com/ufc">YouTube</a></li>
+				</ul>
+			</div>
+			<div class="footer-col">
+				<h4>Legal</h4>
+				<ul>
+					<li><a href="/">Terms</a></li>
+					<li><a href="/">Privacy Policy</a></li>
+					<li><a href="/">Ad Choices</a></li>
+				</ul>
+			</div>
+			<div class="footer-col">
+				
+			</div>
 		</div>
 	</div>
 </footer>
 
 <style>
     footer {
-		position: relative;
 		display: flex;
-		background-color: rgb(10, 28, 42);
+		background-color: black;
 		color: var(--color-text1)
 	}
 	h1 {
 		font-family: var(--font-header);
 		color: var(--color-text1);
-		font-size: 2rem;
-	}
-	.logo {
-		display: flex;
-	}
-	#logo {
-		align-self: center;
-		height: 50px;
-		width: 50px;
-		padding:3%;
-	}
-	h4 {
-		height: 5px;
-		font-family: var(--font-norse);
-		font-size: 1.5rem;
 	}
 
+	h4 {
+		height: 5px;
+	}
 	.container {
 		display: flex;
 		padding: 10px;
 	}
 	.sep {
 		padding-left: 50px;
-		padding-right: 70%;
+		padding-right: 65vw;
 	}
 	.container {
 		flex-grow: 1;
@@ -79,26 +80,5 @@
 
 	li a {
 		color:gray;
-		font-family: var(--font-norse);
-		font-size: 1.3rem;
 	}
-	@media (max-width: 915px) {
-		.sep {
-			padding-left: 50px;
-			padding-right: 55vw;
-		}
-	}
-	@media (max-width: 825px) {
-		.sep {
-			padding-left: 50px;
-			padding-right: 27.5vw;
-		}
-	}
-	@media (max-width: 450px) {
-		.sep {
-			padding-left: 50px;
-			padding-right: 24vw;
-		}
-	}
-
 </style>
