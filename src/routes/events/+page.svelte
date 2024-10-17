@@ -117,10 +117,10 @@
 		border-radius: 2%;
 		padding-left: 0%;
 		width: 42.5%;
-		height: 10vh;
+		height: 15vh;
 		margin: 0;
 		display: flex;
-		justify-content: center;
+		justify-content: space-evenly;
 		align-items: center;
 		flex-direction: column; 
 		margin: 0.75rem 0;
