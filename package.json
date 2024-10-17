@@ -16,6 +16,8 @@
     "code-red": "^1.0.4",
     "cookie": "^0.6.0",
     "css-tree": "^2.3.1",
+    "csv": "^6.3.10",
+    "csv-parse": "^5.5.6",
     "debug": "^4.3.6",
     "deepmerge": "^4.3.1",
     "dequal": "^2.0.3",
@@ -25,6 +27,7 @@
     "estree-walker": "^3.0.3",
     "fdir": "^6.3.0",
     "fill-range": "^7.1.1",
+    "fs": "^0.0.1-security",
     "fsevents": "^2.3.3",
     "glob-parent": "^5.1.2",
     "globalyzer": "^0.1.0",
@@ -43,6 +46,7 @@
     "mrmime": "^2.0.0",
     "ms": "^2.1.2",
     "nanoid": "^3.3.7",
+    "node-fetch": "^3.3.2",
     "normalize-path": "^3.0.0",
     "periscopic": "^3.1.0",
     "picocolors": "^1.1.0",
@@ -72,5 +76,8 @@
   },
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "@types/node": "^22.7.5"
+  }
 }

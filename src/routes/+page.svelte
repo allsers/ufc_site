@@ -19,7 +19,6 @@
 			this.document.documentElement.style.setProperty('--darkness', `${darkness}`);
 		})
 
-
 		const section2 = document.getElementById('section2');
         const options = {
 			root: null,
@@ -196,6 +195,7 @@
 		padding: 12px 24px;
 		border: none;
 		border-radius: 2.5px;
+    	box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
 		transition: all 0.5s ease;
 	}
 	button:hover {
@@ -212,6 +212,8 @@
 		display: flex;
 		flex-direction: row;
 		justify-content: center;
+    	box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+
 	}
 
 	.card {

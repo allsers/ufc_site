@@ -48,14 +48,16 @@
 		margin: 0;
 		height: 3.5rem;
 		display: flex;
-		justify-content: space-between;
+		justify-content: center;
 		align-items: center;
 		list-style: none;
 		background: var(--background);
 	}
 
 	li {
-		padding: 5%;
+		padding: 2.5%;
+		padding-left: 9%;
+		padding-right: 9%;
 		position: relative;
 		height: 100%;
 	}

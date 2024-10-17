@@ -4,21 +4,139 @@
 </svelte:head>
 
 <script lang="ts">
-	console.log('Welcome to events')
+	import { onMount } from 'svelte';
+
+    onMount(async () => {
+		interface Event {
+			event: string;
+			fighters: string;
+			location: string;
+			date: string;
+		};
+		let events: Event[] = [];
+        try {
+            const response = await fetch('/events');
+            if (!response.ok) throw new Error('Network response was not ok');
+            events = await response.json();
+        } catch (error) {
+            console.error('Error fetching events:', error);
+        }
+	
+		const eventsHTML = document.getElementById("eventsHTML")
+		for (let i = 0; i < events.length; i++) {
+			const li = document.createElement('li');
+			const eventP = document.createElement('p');
+			const fightersP = document.createElement('p');
+			const dateP = document.createElement('p');
+			const locationP = document.createElement('p');
+			
+			eventP.id = 'event';
+			fightersP.id = 'fighters'
+			dateP.id = 'date';
+			locationP.id = 'location';
+
+			eventP.innerText = events[i].event
+			fightersP.innerText = events[i].fighters
+			dateP.innerText = events[i].date
+			locationP.innerText = events[i].location
+
+			li.id = "card";
+			li.appendChild(eventP)
+			li.appendChild(fightersP)
+			li.appendChild(dateP)
+			li.appendChild(locationP)
+			eventsHTML?.appendChild(li)
+		};
+    });
+
 </script>
-<div class="text-column">
-	<h1>About this app</h1>
+<div id="section1">
+	<h1>Events</h1>
+	<ol id="eventsHTML">
 
-	<p>
-		This is a <a href="https://kit.svelte.dev">SvelteKit</a> app. You can make your own by typing the
-		following into your command line and following the prompts:
-	</p>
-
-	<pre>npm create svelte@latest</pre>
-
-	<p>
-		The page you're looking at is purely static HTML, with no client-side interactivity needed.
-		Because of that, we don't need to load any JavaScript. Try viewing the page's source, or opening
-		the devtools network panel and reloading.
-	</p>
+	</ol>
+	
 </div>
+
+<style>
+	#section1 {
+		padding: 0;
+		background: 
+		linear-gradient(
+			to bottom,
+			rgba(9,9,19,1) 0%,
+			rgba(9,9,19,1) 2.5%,
+			transparent 10%
+		),
+		linear-gradient(
+			90deg, 
+			rgba(9,9,19,1) 15%, 
+			rgba(38,38,78,1) 50%, 
+			rgba(9,9,19,1) 85%
+		);
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding-top: 2rem;
+
+	}
+	h1 {
+		width: 100vw;
+		justify-content: center;
+		display: flex;
+		padding: 0;
+		margin-left: 0;
+		color: var(--color-text1);
+		font-family: var(--font-bebas);
+	}
+	#eventsHTML {
+		padding: 0;
+		padding-bottom: 5%;
+		width: 100%;
+		margin: 0;
+		flex-direction: column;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		list-style-type: none;
+	}
+
+	:global(#card) {
+		padding: 1rem;
+		border-radius: 2%;
+		padding-left: 0%;
+		width: 45%;
+		margin: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column; 
+		margin: 0.75rem 0;
+		background-color: #17161e;
+		box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+		transition: all 0.25s;
+	}
+	:global(#card):hover {
+		transform: scale(100.5%) translateY(-5px);
+	}
+	:global(#card p) {
+    	margin: 0;
+		color: var(--color-text1);
+	}
+	:global(#card p:nth-child(n+2)) {
+    	font-family: var(--font-bebas);
+	}
+	:global(#event) {
+		font-size: 1.6rem;
+		font-family: var(--font-header);
+		text-shadow: 4px 4px 8px #000000;
+	}
+	:global(#fighters) {
+		font-size: 1.25rem;
+	}
+	:global(#location) {
+		font-size: 1.1rem;
+	}
+</style>
