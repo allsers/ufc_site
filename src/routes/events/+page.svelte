@@ -23,30 +23,37 @@
         }
 	
 		const eventsHTML = document.getElementById("eventsHTML")
-		for (let i = 0; i < events.length; i++) {
+		if (eventsHTML) {
+			eventsHTML.style.opacity = '0';
+		}
+		events.forEach(event => {
 			const li = document.createElement('li');
-			const eventP = document.createElement('p');
-			const fightersP = document.createElement('p');
-			const dateP = document.createElement('p');
-			const locationP = document.createElement('p');
+			li.id = 'card';
+
+			const elements = [
+				{ id: 'event', text: event.event },
+				{ id: 'fighters', text: event.fighters },
+				{ id: 'date', text: event.date },
+				{ id: 'location', text: event.location }
+			];
 			
-			eventP.id = 'event';
-			fightersP.id = 'fighters'
-			dateP.id = 'date';
-			locationP.id = 'location';
+			elements.forEach(({ id, text }) => {
+				const p = document.createElement('p');
+				p.id = id;
+				p.innerText = text;
+				li.appendChild(p);
+			});
 
-			eventP.innerText = events[i].event
-			fightersP.innerText = events[i].fighters
-			dateP.innerText = events[i].date
-			locationP.innerText = events[i].location
-
-			li.id = "card";
-			li.appendChild(eventP)
-			li.appendChild(fightersP)
-			li.appendChild(dateP)
-			li.appendChild(locationP)
-			eventsHTML?.appendChild(li)
+			eventsHTML?.appendChild(li);
+		});
+	
+		if (eventsHTML) {
+			setTimeout(() => {
+				eventsHTML.style.transition = 'opacity 0.35s';
+				eventsHTML.style.opacity = '1';
+			}, 25); 
 		};
+	
     });
 
 </script>
@@ -60,6 +67,7 @@
 
 <style>
 	#section1 {
+		height: 330vh;
 		padding: 0;
 		background: 
 		linear-gradient(
@@ -77,11 +85,11 @@
 		margin: 0;
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
 		align-items: center;
 		padding-top: 2rem;
 
 	}
+
 	h1 {
 		width: 100vw;
 		justify-content: center;
@@ -91,6 +99,7 @@
 		color: var(--color-text1);
 		font-family: var(--font-bebas);
 	}
+
 	#eventsHTML {
 		padding: 0;
 		padding-bottom: 5%;
@@ -107,7 +116,7 @@
 		padding: 1rem;
 		border-radius: 2%;
 		padding-left: 0%;
-		width: 45%;
+		width: 42.5%;
 		margin: 0;
 		display: flex;
 		justify-content: center;
@@ -131,7 +140,7 @@
 	:global(#event) {
 		font-size: 1.6rem;
 		font-family: var(--font-header);
-		text-shadow: 4px 4px 8px #000000;
+		text-shadow: 8px 8px 12px #000000;
 	}
 	:global(#fighters) {
 		font-size: 1.25rem;

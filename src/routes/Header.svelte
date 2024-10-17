@@ -31,6 +31,7 @@
 		left: 0;
 		width: 100%;
 		z-index: 1000;
+		text-shadow: 8px 8px 12px #000000;
 	}
 
 
