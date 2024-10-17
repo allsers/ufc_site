@@ -7,6 +7,10 @@
 	import { onMount } from 'svelte';
 
     onMount(async () => {
+		const section1 = document.getElementById('section1')
+		if (section1) {
+			section1.style.height = '300vh';
+		}
 		interface Event {
 			event: string;
 			fighters: string;
@@ -21,7 +25,7 @@
         } catch (error) {
             console.error('Error fetching events:', error);
         }
-	
+
 		const eventsHTML = document.getElementById("eventsHTML")
 		if (eventsHTML) {
 			eventsHTML.style.opacity = '0';
@@ -51,6 +55,9 @@
 			setTimeout(() => {
 				eventsHTML.style.transition = 'opacity 0.35s';
 				eventsHTML.style.opacity = '1';
+				if (section1) {
+					section1.style.height = 'auto';
+				}
 			}, 25); 
 		};
 	
@@ -67,7 +74,6 @@
 
 <style>
 	#section1 {
-		height: 330vh;
 		padding: 0;
 		background: 
 		linear-gradient(
