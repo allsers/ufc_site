@@ -68,6 +68,9 @@
     "vite": "^5.4.8",
     "vitefu": "^0.2.5"
   },
+  "optionalDependencies": {
+    "fsevents": "*"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "vite dev",

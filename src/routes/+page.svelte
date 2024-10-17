@@ -208,17 +208,16 @@
 	}
 
 	.fighters {
-		width: min(800px,90%);
+		width: 100%;
 		display: flex;
 		flex-direction: row;
 		justify-content: center;
-    	box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
-
+		align-items: center;
 	}
 
 	.card {
 		display: flex;
-		flex-wrap: wrap;
+		flex-direction: column;
 		justify-content: center;
 		align-self: center;
 		height: 57.5vh;
