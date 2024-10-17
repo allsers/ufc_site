@@ -117,6 +117,7 @@
 		border-radius: 2%;
 		padding-left: 0%;
 		width: 42.5%;
+		height: 10vh;
 		margin: 0;
 		display: flex;
 		justify-content: center;
