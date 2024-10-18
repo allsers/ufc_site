@@ -11,7 +11,7 @@
 		if (section1) {
 			section1.style.height = '300vh';
 		}
-		interface Event {
+		interface Event { // Definerer interfacen som skal bli brukt for events lista
 			event: string;
 			fighters: string;
 			location: string;
@@ -34,8 +34,8 @@
 			const li = document.createElement('li');
 			li.id = 'card';
 
-			const elements = [
-				{ id: 'event', text: event.event },
+			const elements = [ // Kobler id til p-element sammen med tekst, der event er et objekt hentet fra listen events
+				{ id: 'event', text: event.event }, 
 				{ id: 'fighters', text: event.fighters },
 				{ id: 'date', text: event.date },
 				{ id: 'location', text: event.location }
@@ -60,7 +60,16 @@
 				}
 			}, 25); 
 		};
-	
+		document.addEventListener('mousemove', (e) => {
+			const card = document.getElementById('card');
+			const rect = card?.getBoundingClientRect();
+			if (rect) {
+				const x = e.clientX - rect.left;
+				const y = e.clientY - rect.top;
+				card?.style.setProperty('--mouse-x', `${x}px`);
+				card?.style.setProperty('--mouse-y', `${y}px`);
+			}
+		});
     });
 
 </script>
@@ -73,6 +82,7 @@
 </div>
 
 <style>
+
 	#section1 {
 		padding: 0;
 		background: 
@@ -134,8 +144,35 @@
 		box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
 		transition: all 0.25s;
 	}
+
+	:global(#card) {
+		position: relative;
+		transition: transform 0.3s ease;
+	}
+
+	:global(#card)::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		transition: opacity 0.3s ease;
+		opacity: 0;
+		background: radial-gradient(
+			circle at 0 0,
+			rgba(255, 255, 255, 0.1) 0%,
+			rgba(255, 255, 255, 0) 50%
+		);
+	}
+
+	:global(#card):hover::before {
+		transition: all 0.4s;
+		opacity: 1;
+	}
+
 	:global(#card):hover {
-		transform: scale(100.5%) translateY(-5px);
+		transform: scale(1.005) translateY(-5px);
 	}
 	:global(#card p) {
     	margin: 0;
