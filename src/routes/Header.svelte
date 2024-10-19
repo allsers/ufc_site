@@ -10,7 +10,7 @@
 				<a href="/events">Events</a>
 			</li>
 			<li aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
-				<a href="/">UFC</a>
+				<a href="/" class='logo'>UFC</a>
 			</li>
 			<li aria-current={$page.url.pathname === '/athletes' ? 'page' : undefined}>
 				<a href="/athletes">Athletes</a>
@@ -23,15 +23,12 @@
 <style>
 	header {
 		display: flex;
-		justify-content: space-between;
 		width: 100%;
-		flex-grow: 1;
 		position: fixed;
 		top: 0;
 		left: 0;
 		width: 100%;
 		z-index: 1000;
-		text-shadow: 8px 8px 12px #000000;
 	}
 
 
@@ -44,26 +41,25 @@
 
 	ul {
 		width: 100%;
-		position: relative;
 		padding: 0;
 		margin: 0;
 		height: 3.5rem;
 		display: flex;
-		justify-content: center;
+		justify-content: space-evenly;
 		align-items: center;
 		list-style: none;
 		background: var(--background);
 	}
 
 	li {
-		padding: 2.5%;
-		padding-left: 9%;
-		padding-right: 9%;
-		position: relative;
+		display: flex;
+		align-items: center;
 		height: 100%;
 	}
 
 	nav a {
+		padding: 2.5%;
+		text-shadow: 8px 8px 12px #000000;
 		display: flex;
 		height: 100%;
 		align-items: center;
@@ -77,10 +73,16 @@
 		transition: color 0.2s linear;
 		
 	}
-	nav ul li:nth-child(2) a {
+
+	nav a.logo {
+		display: flex;
+		justify-self:center;
 		font-family: var(--font-header);
 		font-size: 2.5rem;
+		padding: 0 0rem;
+		
 	}
+
 
 
 	a:hover {

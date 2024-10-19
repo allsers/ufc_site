@@ -10,6 +10,7 @@ interface CSVRecord { // Definererer datatype til info-en
 };
 
 const csvUrl = 'https://raw.githubusercontent.com/Greco1899/scrape_ufc_stats/main/ufc_event_details.csv'
+
 export const GET: RequestHandler = async () => {
     try { // Håndterer errors
         const response = await fetch(csvUrl); // Fetcher data fra url-en
@@ -38,4 +39,3 @@ export const GET: RequestHandler = async () => {
         return json({ error: 'Failed to fetch or process data' }, { status: 500 });
     }
 };
-

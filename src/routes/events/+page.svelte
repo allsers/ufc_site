@@ -1,3 +1,4 @@
+
 <svelte:head>
 	<title>UFC</title>
 	<meta name="description" content="About this app" />
@@ -5,6 +6,7 @@
 
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { fade, fly } from 'svelte/transition';
 
     onMount(async () => {
 		const section1 = document.getElementById('section1')
@@ -64,15 +66,27 @@
 
 </script>
 <div id="section1">
-	<h1>Events</h1>
-	<ol id="eventsHTML">
+	<h1 in:fly={{ y: -50, duration: 500 }}>UFC Events</h1>
+	<div id="cardsContainer">
+		<ol id="eventsHTML">
+			
+		</ol>
+	</div>
 
-	</ol>
-	
 </div>
 
 <style>
-
+	@keyframes scaleUp {
+		from {
+			transform: scale(0.9);
+		}
+		to {
+			transform: scale(1);
+		}
+	}
+	:global(body) {
+		overflow-x: hidden;
+	}
 	#section1 {
 		padding: 0;
 		background: 
@@ -93,11 +107,12 @@
 		flex-direction: column;
 		align-items: center;
 		padding-top: 2rem;
-
+		width: 100%;
+		box-sizing: border-box
 	}
 
 	h1 {
-		width: 100vw;
+		width: 100%;
 		justify-content: center;
 		display: flex;
 		padding: 0;
@@ -118,9 +133,17 @@
 		list-style-type: none;
 	}
 
+	#cardsContainer {
+		width: 100%;
+		min-height: 200vh;
+		position: relative;
+		content-visibility: auto;
+		contain-intrinsic-size: 1px 5000px;
+	}
+
 	:global(#card) {
 		padding: 1rem;
-		border-radius: 2%;
+		border-radius: 10px;
 		padding-left: 0%;
 		width: 42.5%;
 		height: 12.5vh;
@@ -132,15 +155,19 @@
 		margin: 0.75rem 0;
 		background-color: #17161e;
 		box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
-		transition: all 0.25s;
-	}
+		transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
 
-	:global(#card) {
-		position: relative;
-		transition: transform 0.3s ease;
+		transition: transform 0.3s ease-out forwards;
+		view-timeline-name: --cardReveal;
+		view-timeline-axis: block;
+		animation-timeline: --cardReveal;
+		animation-name: scaleUp;
+		animation-range: entry 25% cover 30%;
+		animation-fill-mode: both;
 	}
 
 	:global(#card)::before {
+		border-radius: 10px;
 		content: '';
 		position: absolute;
 		top: 0;
@@ -155,15 +182,26 @@
 			rgba(255, 255, 255, 0) 50%
 		);
 	}
+	:global(#card)::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		border: 2px solid transparent;
+		border-radius: 12px;
+		transition: all 0.3s ease;
+	}
 
+	:global(#card):hover::after {
+		border-color: rgba(255, 255, 255, 0.1);
+		box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+	}
 	:global(#card):hover::before {
-		transition: all 0.4s;
 		opacity: 1;
 	}
 
-	:global(#card):hover {
-		transform: scale(1.005) translateY(-5px);
-	}
 	:global(#card p) {
     	margin: 0;
 		color: var(--color-text1);

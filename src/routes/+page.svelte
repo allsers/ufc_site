@@ -9,6 +9,7 @@
 	
 	import { onMount } from 'svelte';
     import { goto } from '$app/navigation';
+	import { fade, fly } from 'svelte/transition';
 
     onMount(() => {
 
@@ -56,7 +57,7 @@
 	<meta name="description" content="UFC Home Page" />
 </svelte:head>
 <section id = "section1" style='background-image: url({background_image});'>
-	<h1>As Real As It Gets.</h1>
+	<h1 in:fly={{ y: -50, duration: 550 }}>As Real As It Gets.</h1>
 </section>
 
 <section id = "section2">
@@ -93,6 +94,7 @@
 <style>
 	#section1 {
 		background-attachment: fixed;
+		background-position: center;
 		background-size:cover;
 		margin: 0;
 		min-height: 100vh;
@@ -121,7 +123,6 @@
 		text-transform: uppercase;
 		z-index: 2;
 		overflow: hidden;
-		object-fit: contain;
 	}
 
 	#heavyweight {
@@ -178,7 +179,7 @@
 		align-self: center;
 		color: var(--color-text1);
 		font-family: var(--font-bebas);
-		font-size: 2.2em;
+		font-size: 2.4rem;
 		position: fixed;
 		z-index: 1;
 	}
