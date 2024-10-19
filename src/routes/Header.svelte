@@ -3,7 +3,6 @@
 </script>
 
 <header>
-	
 	<nav>
 		<ul>			
 			<li aria-current={$page.url.pathname === '/events' ? 'page' : undefined}>
@@ -82,8 +81,6 @@
 		padding: 0 0rem;
 		
 	}
-
-
 
 	a:hover {
 		color: var(--color-theme-1);

@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { fade, fly } from 'svelte/transition';
+    import { fly } from 'svelte/transition';
     import background_image from '$lib/images/BackgroundImage.png';
     import { onMount } from 'svelte';
 
