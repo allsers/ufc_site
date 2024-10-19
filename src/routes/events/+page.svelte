@@ -72,7 +72,6 @@
 			
 		</ol>
 	</div>
-
 </div>
 
 <style>
@@ -112,11 +111,21 @@
 	}
 
 	h1 {
+		z-index: 999;
+		position: sticky;
+		top: 35px;
+		backdrop-filter: blur(3px);
+		background: linear-gradient(to bottom, 
+			rgba(9,9,19,0.6) 0%,
+			rgba(9,9,19,0.3) 50%,
+			rgba(9,9,19,0) 100%
+		);
 		width: 100%;
 		justify-content: center;
 		display: flex;
 		padding: 0;
-		margin-left: 0;
+		margin: 0;
+		padding: 1.2rem 0;
 		color: var(--color-text1);
 		font-family: var(--font-bebas);
 	}
