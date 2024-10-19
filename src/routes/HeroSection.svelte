@@ -1,6 +1,6 @@
 <script lang="ts">
     import { fly } from 'svelte/transition';
-    import background_image from '$lib/images/BackgroundImage.png';
+    import background_image from '$lib/images/BackgroundImage.jpeg';
     import { onMount } from 'svelte';
 
     onMount(() => {
@@ -12,8 +12,15 @@
         })
     });
 </script>
+
+<svelte:head>
+  <link rel="preload" as="image" href={background_image}>
+</svelte:head>
+
 <section id = "section1" style='background-image: url({background_image});'>
-	<h1 in:fly={{ y: -50, duration: 550 }}>As Real As It Gets.</h1>
+	<div class="content-wrapper">
+		<h1 in:fly={{ y: -50, duration: 550 }}>As Real As It Gets.</h1>	
+	</div>
 </section>
 
 <style>
@@ -23,28 +30,48 @@
 		background-size:cover;
 		margin: 0;
 		min-height: 100vh;
-		max-width: 100vw;
-		display: block;
+		width: 100%;
 		display: flex;
+		align-items: center;
 	}
 
 	#section1::before {
 		content: '';
 		position: absolute;
-		background-color: rgba(0, 0, 0, var(--darkness));
+		background-color: rgba(0, 0, 0, var(--darkness));	
 		width: 100%;
-		height: 100vh;
+		height: 100%;
 		z-index: 2;
 		top: 0;
 		left: 0;
 	}
+	.content-wrapper {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+    }
+
     h1 {
 		width: 100%;
 		align-self: center;
 		color: var(--color-text1);
 		font-family: var(--font-bebas);
-		font-size: 2.4rem;
+		font-size: clamp(2rem, 2.75vw, 2.75rem);
+		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 		position: fixed;
-		z-index: 1;
+		z-index: 2;
+	}
+
+    @media (prefers-reduced-motion: reduce) {
+        h1 {
+            transition: none;
+        }
+    }
+	
+	@media screen and (max-width: 480px) {
+		#section1 {
+			background-position: 820px 0;
+		}
+
 	}
 </style>

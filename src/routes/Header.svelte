@@ -1,18 +1,44 @@
-<script>
+<script lang="ts">
 	import { page } from '$app/stores';
-</script>
+	import { onMount } from 'svelte';
+	
+	// Navbar-navigasjon for accessibility. Kjedelige greier så genererte kode med AI og debugget.
+	onMount(() => {
+		const menuItems = document.querySelectorAll('nav ul li a');
+		menuItems.forEach((item, index) => {
+			item.addEventListener('keydown', (e: Event) => {
+			const keyboardEvent = e as KeyboardEvent;
+				if (keyboardEvent.key === 'ArrowRight') {
+					e.preventDefault();
+					(menuItems[(index + 1) % menuItems.length] as HTMLElement).focus();
+				} else if (keyboardEvent.key === 'ArrowLeft') {
+					e.preventDefault();
+					(menuItems[(index - 1 + menuItems.length) % menuItems.length] as HTMLElement).focus();
+				}
+				if (keyboardEvent.key === 'Home') {
+					e.preventDefault();
+					(menuItems[0] as HTMLElement).focus();
+				} else if (keyboardEvent.key === 'End') {
+					e.preventDefault();
+					(menuItems[menuItems.length - 1] as HTMLElement).focus();
+				}
+			});
+		});
+		
+	});
+  </script>
 
 <header>
-	<nav>
-		<ul>			
-			<li aria-current={$page.url.pathname === '/events' ? 'page' : undefined}>
-				<a href="/events">Events</a>
+	<nav aria-label='Main navigation'>
+		<ul role="menubar">			
+			<li role="menuitem">
+				<a href="/events" tabindex="0" aria-label="View UFC Events"  title="UFC Events" aria-current={$page.url.pathname === '/events' ? 'page' : undefined}>Events</a>
 			</li>
-			<li aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
-				<a href="/" class='logo'>UFC</a>
+			<li role="menuitem">
+				<a href="/" tabindex="0" class='logo' aria-label='UFC Home' title="Ultimate Fighting Championship Home" aria-current={$page.url.pathname === '/' ? 'page' : undefined}>UFC</a>
 			</li>
-			<li aria-current={$page.url.pathname === '/athletes' ? 'page' : undefined}>
-				<a href="/athletes">Athletes</a>
+			<li role="menuitem">
+				<a href="/athletes" tabindex="0" aria-label="View UFC athletes" title="Athletes Page" aria-current={$page.url.pathname === '/athletes' ? 'page' : undefined}>Athletes</a>
 			</li>
 		</ul>
 
@@ -28,21 +54,22 @@
 		left: 0;
 		width: 100%;
 		z-index: 1000;
+		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+		background: linear-gradient(to right, #0b0b16, #0f172c);
 	}
-
 
 	nav {
 		width: 100%;
 		display: flex;
 		justify-content: center;
-		background-image: radial-gradient(circle, #0b0b16 70%, #0f172c 100%);
+		
 	}
 
 	ul {
 		width: 100%;
 		padding: 0;
 		margin: 0;
-		height: 3.5rem;
+		height: 3.6rem;
 		display: flex;
 		justify-content: space-evenly;
 		align-items: center;
@@ -54,23 +81,37 @@
 		display: flex;
 		align-items: center;
 		height: 100%;
+		position: relative;
 	}
 
 	nav a {
-		padding: 2.5%;
-		text-shadow: 8px 8px 12px #000000;
+		padding: 0 1.5rem;
+		text-shadow: 4px 4px 8px #000000;
 		display: flex;
 		height: 100%;
 		align-items: center;
-		padding: 0 0.5rem;
-		color: var(--color-text1);
+		color: #ffffff;
 		font-weight: 700;
 		font-size: 1.3rem;
 		text-transform: uppercase;
 		letter-spacing: 0.075em;
 		text-decoration: none;
-		transition: color 0.2s linear;
-		
+		transition: all 0.3s ease;
+	}
+	nav a::after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		width: 0;
+		height: 3px;
+		background: var(--color-theme-1);
+		transition: all 0.3s ease;
+	}
+	nav a:hover::after,
+	nav a:focus::after {
+		width: 100%;
+		left: 0;
 	}
 
 	nav a.logo {
@@ -79,10 +120,38 @@
 		font-family: var(--font-header);
 		font-size: 2.5rem;
 		padding: 0 0rem;
-		
+		background: linear-gradient(45deg, #ff4e50, #f9d423);
+		-webkit-background-clip: text;
+		background-clip: text;
+		-webkit-text-fill-color: transparent;
 	}
 
-	a:hover {
+	a:hover,
+	a:focus {
 		color: var(--color-theme-1);
+
+	}
+	a:focus {
+		outline: none;
+		box-shadow: 0 0 0 3px rgba(var(--color-theme-1-rgb), 0.5);
+	}
+	@media (prefers-reduced-motion: reduce) {
+		nav a, nav a::after {
+			transition: none;
+		}
+	}
+	@media (max-width: 768px) {
+		ul {
+			justify-content: center;
+		}
+
+		nav a {
+			font-size: 1rem;
+			padding: 0 1rem;
+		}
+
+		nav a.logo {
+			font-size: 2rem;
+		}
 	}
 </style>

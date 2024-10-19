@@ -50,7 +50,7 @@
 	h1 {
 		z-index: 999;
 		position: sticky;
-		top: 35px;
+		top: 40px;
 		backdrop-filter: blur(3px);
 		background: linear-gradient(to bottom, 
 			rgba(9,9,19,0.6) 0%,

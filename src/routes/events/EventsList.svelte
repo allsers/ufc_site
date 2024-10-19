@@ -167,9 +167,27 @@
 		text-shadow: 8px 8px 12px #000000;
 	}
 	:global(#fighters) {
-		font-size: 1.25rem;
+		font-size: 1.5rem;
+	}
+	:global(#date) {
+		font-size: 1.3rem;
 	}
 	:global(#location) {
 		font-size: 1.1rem;
+	}
+
+	@media screen and (max-width: 480px) {
+		:global(#event) {
+			font-size: 1rem;
+		}
+		:global(#fighters) {
+			font-size: 0.8rem;
+		}
+		:global(#date) {
+			font-size: 0.75rem;
+		}
+		:global(#location) {
+			font-size: 0.7rem;
+		}
 	}
 </style>
