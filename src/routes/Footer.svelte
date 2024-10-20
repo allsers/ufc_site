@@ -1,6 +1,6 @@
 
 <script>
-	import { page } from '$app/stores';
+	import { base } from '$app/paths';
 </script>
 
 <footer>
@@ -12,9 +12,9 @@
 			<div class="footer-col">
 				<h4>UFC</h4>
 				<ul>
-					<li><a href="/"><i class="fas fa-home"></i> Home</a></li>
-					<li><a href="/events"><i class="fas fa-calendar-alt"></i> Events</a></li>
-					<li><a href="/athletes"><i class="fas fa-user-friends"></i> Athletes</a></li>
+					<li><a href="{base}/"><i class="fas fa-home"></i> Home</a></li>
+					<li><a href="{base}/events"><i class="fas fa-calendar-alt"></i> Events</a></li>
+					<li><a href="{base}/athletes"><i class="fas fa-user-friends"></i> Athletes</a></li>
 				</ul>
 			</div>
 			<div class="footer-col">
@@ -30,9 +30,9 @@
 			<div class="footer-col">
 				<h4>Legal</h4>
 				<ul>
-					<li><a href="/"><i class="fas fa-file-contract"></i> Terms</a></li>
-					<li><a href="/"><i class="fas fa-user-shield"></i> Privacy Policy</a></li>
-					<li><a href="/"><i class="fas fa-ad"></i> Ad Choices</a></li>
+					<li><a href="{base}/"><i class="fas fa-file-contract"></i> Terms</a></li>
+					<li><a href="{base}/"><i class="fas fa-user-shield"></i> Privacy Policy</a></li>
+					<li><a href="{base}/"><i class="fas fa-ad"></i> Ad Choices</a></li>
 				</ul>
 			</div>
 		</div>
@@ -46,6 +46,7 @@
         padding: 20px 0;
 		width: 100%;
 		overflow: hidden;
+		z-index: 3;
     }
     footer i {
 		margin-right: 3px;
@@ -56,6 +57,7 @@
         margin: 0;
         text-align: left;
         width: auto; 
+		font-size: 2.5rem;
     }
     
     h4 {

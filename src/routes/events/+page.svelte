@@ -7,7 +7,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { fade, fly } from 'svelte/transition';
-
+	import { base } from '$app/paths';
 	import EventsList from './EventsList.svelte';
 
     onMount(async () => {

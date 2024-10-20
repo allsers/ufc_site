@@ -260,15 +260,14 @@
 			flex-direction: row;
 		}
 		#img1, #img3 {
-			min-width: 500px;
-			min-height: 500px;
-			width: 50vw;
-			height: 50vw;
+		
+			width: 22vw;
+			height: 22vw;
 		}
 
 		#img2 {
-			width: 50vw;
-			height: 50vw;
+			width: 28vw;
+			height: 28vw;
 		}
 
 	}

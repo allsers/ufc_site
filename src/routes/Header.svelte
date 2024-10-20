@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
+	import { base } from '$app/paths';
 	import { onMount } from 'svelte';
 	
 	// Navbar-navigasjon for accessibility. Kjedelige greier så genererte kode med AI og debugget.
@@ -32,13 +33,13 @@
 	<nav aria-label='Main navigation'>
 		<ul role="menubar">			
 			<li role="menuitem">
-				<a href="/events" tabindex="0" aria-label="View UFC Events"  title="UFC Events" aria-current={$page.url.pathname === '/events' ? 'page' : undefined}>Events</a>
+				<a href="{base}/events" tabindex="0" aria-label="View UFC Events" title="UFC Events" aria-current={$page.url.pathname === '/events' ? 'page' : undefined}>Events</a>
 			</li>
 			<li role="menuitem">
-				<a href="/" tabindex="0" class='logo' aria-label='UFC Home' title="Ultimate Fighting Championship Home" aria-current={$page.url.pathname === '/' ? 'page' : undefined}>UFC</a>
+				<a href="{base}/" tabindex="0" class='logo' aria-label='UFC Home' title="Ultimate Fighting Championship Home" aria-current={$page.url.pathname === '}/' ? 'page' : undefined}>UFC</a>
 			</li>
 			<li role="menuitem">
-				<a href="/athletes" tabindex="0" aria-label="View UFC athletes" title="Athletes Page" aria-current={$page.url.pathname === '/athletes' ? 'page' : undefined}>Athletes</a>
+				<a href="{base}/athletes" tabindex="0" aria-label="View UFC athletes" title="Athletes Page" aria-current={$page.url.pathname === '/athletes' ? 'page' : undefined}>Athletes</a>
 			</li>
 		</ul>
 

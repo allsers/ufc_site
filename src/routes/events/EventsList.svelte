@@ -98,7 +98,7 @@
 		border-radius: 10px;
 		padding-left: 0%;
 		width: 42.5%;
-		height: 12.5vh;
+		height: 14vh;
 		margin: 0;
 		display: flex;
 		justify-content: space-evenly;
