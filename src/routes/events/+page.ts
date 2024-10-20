@@ -1,9 +1,55 @@
-import { dev } from '$app/environment';
+import Papa from 'papaparse';
+import type { PageLoad } from './$types';
 
-// we don't need any JS on this page, though we'll load
-// it in dev so that we get hot module replacement
-export const csr = dev;
+interface Event {
+    event: string;
+    fighters: string;
+    location: string;
+    date: string;
+}
 
-// since there's no dynamic data here, we can prerender
-// it so that it gets served as a static asset in production
-export const prerender = true;
+const csvUrl = 'https://raw.githubusercontent.com/Greco1899/scrape_ufc_stats/main/ufc_event_details.csv';
+
+async function fetchAndParseCSV(fetch: (input: RequestInfo, init?: RequestInit) => Promise<Response>) {
+    const response = await fetch(csvUrl);
+    const csvData = await response.text();
+    
+    return new Promise<Event[]>((resolve, reject) => {
+        Papa.parse(csvData, {
+            header: true,
+            complete: (results) => {
+                const processedData = results.data.slice(0, 15).map((record: any) => {
+                    const [eventName, fighters] = record.EVENT.split(': ');
+                    return {
+                        event: eventName,
+                        fighters: fighters,
+                        location: record.LOCATION,
+                        date: record.DATE
+                    };
+                });
+                resolve(processedData);
+            },
+            error: (error: Error) => {
+                reject(error);
+            }
+        });
+    });
+}
+
+export const load: PageLoad = async ({ fetch }): Promise<{ data: { events: Event[] } }> => {
+    try {
+        const events = await fetchAndParseCSV(fetch);
+        return { 
+            data: {
+                events
+            } 
+        };
+    } catch (error) {
+        console.error('Error fetching or processing CSV:', error);
+        return { 
+            data: { 
+                events: [] 
+            } 
+        };
+    }
+};

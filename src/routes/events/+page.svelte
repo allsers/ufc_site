@@ -5,18 +5,22 @@
 </svelte:head>
 
 <script lang="ts">
+	
 	import { onMount } from 'svelte';
 	import { fade, fly } from 'svelte/transition';
 	import { base } from '$app/paths';
 	import EventsList from './EventsList.svelte';
+	import type { PageData } from './$types';
 
+	export let data: PageData;
     onMount(async () => {
     });
+	
 
 </script>
 <div id="section1">
 	<h1 in:fly={{ y: -50, duration: 500 }}>UFC Events</h1>
-	<EventsList />
+	<EventsList data={data} />
 </div>
 
 <style>

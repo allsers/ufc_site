@@ -1,65 +1,44 @@
 <script lang="ts">
     import { onMount } from 'svelte';
-    onMount(async () => {
-		const section1 = document.getElementById('section1')
-		if (section1) {
-			section1.style.height = '300vh';
-		}
-		interface Event { // Definerer interfacen som skal bli brukt for events lista
-			event: string;
-			fighters: string;
-			location: string;
-			date: string;
-		};
-		let events: Event[] = [];
-        try {
-            const response = await fetch('/events');
-            if (!response.ok) throw new Error('Network response was not ok');
-            events = await response.json();
-        } catch (error) {
-            console.error('Error fetching events:', error);
+    import type { PageData } from './$types';
+
+    export let data: PageData;
+	
+	$: events = data.data.events;
+
+    onMount(() => {
+        const section1 = document.getElementById('section1');
+        if (section1) {
+            section1.style.height = '300vh';
         }
 
-		const eventsHTML = document.getElementById("eventsHTML")
-		if (eventsHTML) {
-			eventsHTML.style.opacity = '0';
-		}
-		events.forEach(event => {
-			const li = document.createElement('li');
-			li.id = 'card';
+        const eventsHTML = document.getElementById("eventsHTML");
+        if (eventsHTML) {
+            eventsHTML.style.opacity = '0';
+        }
 
-			const elements = [ // Kobler id til p-element sammen med tekst, der event er et objekt hentet fra listen events
-				{ id: 'event', text: event.event }, 
-				{ id: 'fighters', text: event.fighters },
-				{ id: 'date', text: event.date },
-				{ id: 'location', text: event.location }
-			];
-			
-			elements.forEach(({ id, text }) => {
-				const p = document.createElement('p');
-				p.id = id;
-				p.innerText = text;
-				li.appendChild(p);
-			});
-
-			eventsHTML?.appendChild(li);
-		});
-	
-		if (eventsHTML) {
-			setTimeout(() => {
-				eventsHTML.style.transition = 'opacity 0.35s';
-				eventsHTML.style.opacity = '1';
-				if (section1) {
-					section1.style.height = 'auto';
-				}
-			}, 25); 
-		};
+        setTimeout(() => {
+            if (eventsHTML) {
+                eventsHTML.style.transition = 'opacity 0.35s';
+                eventsHTML.style.opacity = '1';
+            }
+            if (section1) {
+                section1.style.height = 'auto';
+            }
+        }, 25);
     });
 </script>
 
 <div id="cardsContainer">
     <ol id="eventsHTML">
-        
+        {#each events as event}
+            <li id="card">
+                <p id="event">{event.event}</p>
+                <p id="fighters">{event.fighters}</p>
+                <p id="date">{event.date}</p>
+                <p id="location">{event.location}</p>
+            </li>
+        {/each}
     </ol>
 </div>
 
