@@ -189,5 +189,14 @@
 		:global(#location) {
 			font-size: 0.7rem;
 		}
+		:global(#card) {
+			width: 55%;
+		}
+	}
+	@media screen and (max-height: 1000px) {
+
+		:global(#card) {
+			height: auto;
+		}
 	}
 </style>

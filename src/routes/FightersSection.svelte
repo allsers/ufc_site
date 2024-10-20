@@ -76,7 +76,7 @@
 		</div>
 		<div class="right">
 			<img src={lightning} id = "lightning2" alt="" aria-hidden="true">
-			<img id = 'heavyweight' src={heavyweight} alt="Heavyweight UFC fighter" aria-label="Silhouette of a heavyweight UFC fighter">
+			<img id = 'heavyweight' src={heavyweight} alt="Heavyweight UFC fighter" aria-label="Picture of a heavyweight UFC fighter">
 		</div>	
 	</div>
 </section>
@@ -239,12 +239,12 @@
 		}
 		#img1, #img3 {
 			width: 40vw;
-			height: 40vw;
+			height: 65vw;
 		}
 
 		#img2 {
 			width: 50vw;
-			height: 50vw;
+			height: 75vw;
 		}
 	}
 	@media screen and (min-width: 768px) {

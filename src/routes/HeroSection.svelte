@@ -70,7 +70,7 @@
 	
 	@media screen and (max-width: 480px) {
 		#section1 {
-			background-position: 820px 0;
+			background-position: 680px 0;
 		}
 
 	}

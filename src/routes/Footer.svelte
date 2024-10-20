@@ -41,6 +41,7 @@
 
 <style>
     footer {
+		z-index: 3;
         background-color: black;
         color: var(--color-text1);
         padding: 20px 0;
@@ -53,6 +54,7 @@
 	}
     h1 {
         font-family: var(--font-header);
+		font-size: 3em;
         color: var(--color-text1);
         margin: 0;
         text-align: left;
@@ -174,6 +176,7 @@
 		}
 		h1 {
 			text-align: center;
+			font-size: 2em;
 		}
 		h4 {
 			text-align: center;
