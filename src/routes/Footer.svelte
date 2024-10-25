@@ -40,111 +40,118 @@
 </footer>
 
 <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
     footer {
-		z-index: 3;
+        z-index: 3;
         background-color: black;
         color: var(--color-text1);
         padding: 20px 0;
-		width: 100%;
-		overflow: hidden;
-		z-index: 3;
+        width: 100%;
+        overflow: hidden;
     }
+
     footer i {
-		margin-right: 3px;
-	}
+        margin-right: 3px;
+    }
+
     h1 {
         font-family: var(--font-header);
-		font-size: 3em;
+        font-size: 2.5rem;
         color: var(--color-text1);
-        margin: 0;
         text-align: left;
         width: auto; 
-		font-size: 2.5rem;
     }
     
     h4 {
-        margin-bottom: 15px;
+        padding-bottom: 15px;
         text-align: left; 
     }
     
     .container {
-		width: 70%;
-		display: flex;
-		justify-content: flex-end;
-        margin: 0 auto;
+        width: 90%;
+        display: flex;
+        justify-content: flex-end;
         padding: 0 20px;
     }
     
     .sep {
-        margin-bottom: 20px;
-		padding-left: 4%;
+        padding-bottom: 20px;
+        padding-left: 4%;
     }
     
     .row {
         display: flex;
-		flex-wrap: wrap;
+        flex-wrap: wrap;
         justify-content: space-between; 
     }
     
     .footer-col {
         width: 25%;
-        padding: 0 15px;
-        margin-bottom: 30px;
-		flex: 1;
-		transition: height 0.3s ease, width 0.3s ease;
+        padding: 0 15px 30px;
+        flex: 1;
+        transition: height 0.3s ease, width 0.3s ease;
     }
     
     ul {
         list-style-type: none;
-        padding: 0;
     }
     
     li {
-        margin-bottom: 10px;
+        padding-bottom: 10px;
     }
     
     li a {
         color: gray;
         text-decoration: none;
-        transition: color 0.3s ease, transform 0.2s ease;;
-		white-space: nowrap;
+        transition: color 0.3s ease, transform 0.2s ease;
+        white-space: nowrap;
     }
     
     li a:hover {
         color: var(--color-text1);
-		transform: translateY(-2px);
+        transform: translateY(-2px);
     }
-	footer i {
-		margin-right: 5px;
-		transition: transform 0.3s ease;
-	}
 
-	li a:hover i {
-		transform: rotate(360deg);
-	}
+    footer i {
+        margin-right: 5px;
+        transition: transform 0.3s ease;
+    }
 
-	li a {
-		position: relative;
-	}
+    li a:hover i {
+        transform: rotate(360deg);
+    }
 
-	li a::after {
-		content: '';
-		position: absolute;
-		width: 0;
-		height: 1px;
-		bottom: -2px;
-		left: 0;
-		background-color: var(--color-text1);
-		transition: width 0.3s ease;
-	}
+    li a {
+        position: relative;
+    }
 
-	li a:hover::after {
-		width: 100%;
-	}
+    li a::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 1px;
+        bottom: -2px;
+        left: 0;
+        background-color: var(--color-text1);
+        transition: width 0.3s ease;
+    }
+
+    li a:hover::after {
+        width: 100%;
+    }
+
     @media (max-width: 768px) {
+        .container {
+            width: 100%;
+        }
         .sep {
             text-align: center;
-            margin-bottom: 30px;
+            padding-bottom: 30px;
         }
 
         .footer-col {
@@ -152,34 +159,42 @@
             text-align: left; 
         }
 
-		li a {
-			font-size: 0.9em;
-		}
+        li a {
+            font-size: 0.9em;
+        }
     }
 
     @media (max-width: 480px) {
-		.container {
-			width: 100%;
-			padding: 0 10px;
-		}
+        .container {
+            width: 100%;
+            padding: 0 10px;
+            justify-content: center;
+        }
 
-		.footer-col {
-			width: 100%;
-			text-align: center;
-		}
+        .row {
+            flex-direction: column;
+            align-items: center;
+        }
 
-		li a {
-			font-size: 0.85em;
-			white-space: normal;
-			overflow: visible;
-			text-overflow: clip;
-		}
-		h1 {
-			text-align: center;
-			font-size: 2em;
-		}
-		h4 {
-			text-align: center;
-		}
+        .footer-col {
+            width: 100%;
+            text-align: center;
+            padding: 0 0 30px;
+        }
+
+        .sep {
+            padding-left: 0;
+            text-align: center;
+        }
+
+        h1, h4 {
+            text-align: center;
+        }
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
     }
 </style>
