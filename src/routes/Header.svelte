@@ -87,7 +87,7 @@
 
 	nav a {
 		padding: 0 1.5rem;
-		text-shadow: 4px 4px 8px #000000;
+		text-shadow: 0.3077em 0.3077em 0.6154em #000000;
 		display: flex;
 		height: 100%;
 		align-items: center;
