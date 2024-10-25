@@ -165,7 +165,7 @@
 
 		.footer-col {
 			width: 100%;
-			text-align: left;
+			text-align: center;
 		}
 
 		li a {
