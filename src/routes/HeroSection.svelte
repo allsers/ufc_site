@@ -67,11 +67,16 @@
             transition: none;
         }
     }
-	
 	@media screen and (max-width: 480px) {
-		#section1 {
-			background-position: 680px 0;
-		}
-
-	}
+        #section1 {
+            background-position: 70% center;
+            background-attachment: scroll;
+        }
+    }
+	
+    @media screen and (max-width: 768px) {
+        #section1 {
+            background-position: 60% center;
+        }
+    }
 </style>
