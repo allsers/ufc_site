@@ -69,7 +69,7 @@
     }
 	@media screen and (max-width: 480px) {
         #section1 {
-            background-position: 70% center;
+            background-position: 60% center;
             background-attachment: scroll;
         }
     }
