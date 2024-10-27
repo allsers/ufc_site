@@ -21,19 +21,25 @@
             rootMargin: '50% 0px 10% 0px',
             threshold: 1,
         };
-
         const handleIntersection = (entries: IntersectionObserverEntry[]): void => {
-            entries.forEach((entry) => {
-                const children = section.querySelectorAll('*');
-                children.forEach((child) => {
-                    if (child instanceof HTMLElement) {
-                        child.style.transition = 'opacity 0.5s ease';
-                        child.style.opacity = entry.isIntersecting ? '1' : '0';
-                    }
-                });
-            });
-        };
-
+			entries.forEach((entry) => {
+				const children = section.querySelectorAll('*');
+				children.forEach((child) => {
+					if (child instanceof HTMLElement) {
+						if (child.tagName.toLowerCase() === 'button') {
+							setTimeout(() => {
+								child.style.opacity = entry.isIntersecting ? '1' : '0';
+								child.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+								child.style.transform = entry.isIntersecting ? 'translateY(55%)' : 'translateY(-10%)';
+							}, 250);
+						} else {
+							child.style.transition = 'opacity 0.5s ease';
+							child.style.opacity = entry.isIntersecting ? '1' : '0';
+						}
+					}
+				});
+			});
+		};
         const observer = new IntersectionObserver(handleIntersection, options);
 
         const children = section.querySelectorAll('*');
@@ -154,7 +160,7 @@
 	}
 
 	button {
-		transform: translateY(55%);
+		opacity: 0;
 		font-size: 2em;
 		background-color: #17161e;
 		align-self: center;
