@@ -1,6 +1,7 @@
 <script lang="ts">
     import { onMount } from 'svelte';
     import { goto } from '$app/navigation';
+	import { base } from '$app/paths';
     import fighter_middle from '$lib/images/fighter-middle.png';
     import fighter_left from '$lib/images/fighter-left.png';
     import fighter_right from '$lib/images/fighter-right.png';
@@ -64,7 +65,7 @@
 		</div>
 		<div class="card">
 			<div class="textbox">
-				<button on:click={() => goto('/athletes')} aria-label="View our fighters">Check Out Our Fighters!</button>
+				<button on:click={() => goto(`${base}/athletes`)} aria-label="View our fighters">Check Out Our Fighters!</button>
 			</div>
 			<div class="fighters">
 				<div class="images">
