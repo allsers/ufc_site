@@ -7,7 +7,7 @@
         window.addEventListener('scroll', function() {
             const scrollPos = window.scrollY;
             const maxScroll = this.window.innerHeight;
-            const darkness = scrollPos / maxScroll
+            const darkness = Math.min(1, scrollPos/maxScroll)
             this.document.documentElement.style.setProperty('--darkness', `${darkness}`);
         })
     });
