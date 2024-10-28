@@ -20,30 +20,28 @@
         const options: IntersectionObserverInit = {
             root: null,
             rootMargin: '50% 0px 10% 0px',
-            threshold: 1,
+            threshold: 0.6,
         };
 
         const handleIntersection = (entries: IntersectionObserverEntry[]): void => {
-            entries.forEach((entry) => {
-                const children = section.querySelectorAll('*');
-                children.forEach((child) => {
-                    if (child instanceof HTMLElement) {
-                        child.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-                        child.style.opacity = entry.isIntersecting ? '1' : '0';
-                        if (child.tagName.toLowerCase() === 'button') {
-                            child.style.transform = entry.isIntersecting ? 'translateY(55%)' : 'translateY(-10%)';
-                        }
+            const visible = entries.some(entry => entry.isIntersecting);
+            const children = section.querySelectorAll('*');
+            children.forEach((child) => {
+                if (child instanceof HTMLElement) {
+                    child.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    child.style.opacity = visible ? '1' : '0';
+                    if (child.tagName.toLowerCase() === 'button') {
+                        child.style.transform = visible ? 'translateY(55%)' : 'translateY(-10%)';
                     }
-                });
+                }
             });
         };
 
         const observer = new IntersectionObserver(handleIntersection, options);
-        const children = section.querySelectorAll('*');
-        children.forEach((child) => observer.observe(child));
+        observer.observe(section);
 
         return () => {
-            children.forEach((child) => observer.unobserve(child));
+            observer.unobserve(section);
         };
     }
 
@@ -56,8 +54,8 @@
     <h2 class="visually-hidden">UFC Fighter Showcase</h2>
     <div class="flex">
         <div class="left">
-            <img src={lightning} id="lightning1" alt="" aria-hidden="true">
-            <img id="featherweight" src={featherweight} alt="Featherweight UFC fighter" aria-label="Picture of a featherweight UFC fighter">
+            <img src={lightning} id="lightning1" alt="" aria-hidden="true" loading="lazy">
+            <img id="featherweight" src={featherweight} alt="Featherweight UFC fighter" aria-label="Picture of a featherweight UFC fighter" loading="lazy">
         </div>
         <div class="card">
             <div class="textbox">
@@ -66,20 +64,20 @@
             <div class="fighters">
                 <div class="images">
                     <div class="image1">
-                        <img id="img1" src={fighter_left} alt="Fighter on the left" aria-label="UFC fighter in left position">
+                        <img id="img1" src={fighter_left} alt="Fighter on the left" aria-label="UFC fighter in left position" loading="lazy">
                     </div>
                     <div class="image2">
-                        <img id="img2" src={fighter_middle} alt="Fighter in the middle" aria-label="UFC fighter in center position">
+                        <img id="img2" src={fighter_middle} alt="Fighter in the middle" aria-label="UFC fighter in center position" loading="lazy">
                     </div>
                     <div class="image3">
-                        <img id="img3" src={fighter_right} alt="Fighter on the right" aria-label="UFC fighter in right position">
+                        <img id="img3" src={fighter_right} alt="Fighter on the right" aria-label="UFC fighter in right position" loading="lazy">
                     </div>
                 </div>
             </div>
         </div>
         <div class="right">
-            <img src={lightning} id="lightning2" alt="" aria-hidden="true">
-            <img id="heavyweight" src={heavyweight} alt="Heavyweight UFC fighter" aria-label="Picture of a heavyweight UFC fighter">
+            <img src={lightning} id="lightning2" alt="" aria-hidden="true" loading="lazy">
+            <img id="heavyweight" src={heavyweight} alt="Heavyweight UFC fighter" aria-label="Picture of a heavyweight UFC fighter" loading="lazy">
         </div>
     </div>
 </section>
