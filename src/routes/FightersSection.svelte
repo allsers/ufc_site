@@ -250,7 +250,12 @@
             width: 40vw;
             height: 65vw;
         }
-
+        #img1 {
+           object-position: 20%;
+        }
+        #img3 {
+            object-position: 80%;
+        }
         #img2 {
             width: 50vw;
             height: 75vw;
