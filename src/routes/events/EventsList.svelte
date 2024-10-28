@@ -17,15 +17,14 @@
             eventsHTML.style.opacity = '0';
         }
 
-        setTimeout(() => {
-            if (eventsHTML) {
-                eventsHTML.style.transition = 'opacity 0.35s';
-                eventsHTML.style.opacity = '1';
-            }
-            if (section1) {
-                section1.style.height = 'auto';
-            }
-        }, 25);
+		if (eventsHTML) {
+			eventsHTML.style.transition = 'opacity 0.35s';
+			eventsHTML.style.opacity = '1';
+		}
+		if (section1) {
+			section1.style.height = 'auto';
+		}
+
     });
 </script>
 
