@@ -2,12 +2,12 @@
     import { onMount } from 'svelte';
     import { goto } from '$app/navigation';
     import { base } from '$app/paths';
-    import fighter_middle from '$lib/images/fighter-middle.png';
-    import fighter_left from '$lib/images/fighter-left.png';
-    import fighter_right from '$lib/images/fighter-right.png';
-    import heavyweight from '$lib/images/heavyweight.png';
-    import featherweight from '$lib/images/featherweight.png';
-    import lightning from '$lib/images/lightning.png';
+    import fighter_middle from '$lib/images/fighter-middle.webp';
+    import fighter_left from '$lib/images/fighter-left.webp';
+    import fighter_right from '$lib/images/fighter-right.webp';
+    import heavyweight from '$lib/images/heavyweight.webp';
+    import featherweight from '$lib/images/featherweight.webp';
+    import lightning from '$lib/images/lightning.webp';
 
     interface IntersectionObserverEntry {
         isIntersecting: boolean;
@@ -178,6 +178,7 @@
     }
 
     .textbox {
+        z-index: 4;
         display: flex;
         justify-content: center;
     }

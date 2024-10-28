@@ -1,12 +1,12 @@
 <script lang="ts">
     import { fly } from 'svelte/transition';
-    import background_image from '$lib/images/BackgroundImage.jpeg';
+    import background_image from '$lib/images/BackgroundImage.webp';
     import { onMount } from 'svelte';
 
     onMount(() => {
         window.addEventListener('scroll', function() {
             const scrollPos = window.scrollY;
-            const maxScroll = document.documentElement.scrollHeight - this.window.innerHeight;
+            const maxScroll = this.window.innerHeight;
             const darkness = scrollPos / maxScroll
             this.document.documentElement.style.setProperty('--darkness', `${darkness}`);
         })
