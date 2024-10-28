@@ -1,16 +1,17 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-	import HeroSection from './HeroSection.svelte';
-	let FightersSection: any;
-	onMount(async () => {
-		const module = await import('./FightersSection.svelte');
-		FightersSection = module.default;
-	});
+    import { onMount } from 'svelte';
+    import HeroSection from './HeroSection.svelte';
+    let FightersSection: typeof import('./FightersSection.svelte').default | null = null;
+
+    onMount(async () => {
+        const module = await import('./FightersSection.svelte');
+        FightersSection = module.default;
+    });
 </script>
 
 <svelte:head>
-	<title>UFC</title>
-	<meta name="description" content="UFC website for previous events, athletes in the UFC, and more." />
+    <title>UFC</title>
+    <meta name="description" content="UFC website for previous events, athletes in the UFC, and more." />
 </svelte:head>
 
 <HeroSection />
@@ -19,4 +20,3 @@
 {:else}
   <p>Loading fighters...</p>
 {/if}
-
