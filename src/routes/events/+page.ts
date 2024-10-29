@@ -1,5 +1,6 @@
 import Papa from 'papaparse';
 import type { PageLoad } from './$types';
+export const prerender = true;
 
 // Definerer strukturen for event-data
 interface Event {
