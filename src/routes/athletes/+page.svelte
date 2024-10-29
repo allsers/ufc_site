@@ -9,7 +9,7 @@
 </script>
 
 <div id="section1">
-	<h1 in:fly={{ y: -50, duration: 500 }}>UFC Athletess</h1>
+	<h1 in:fly={{ y: -50, duration: 500 }}>UFC Legends</h1>
 	<Athletes />
 </div>
 
@@ -39,7 +39,6 @@
 		padding-top: 2rem;
 		width: 100%;
 		box-sizing: border-box;
-		height: 100vh;
 	}
 
 	h1 {
