@@ -18,7 +18,7 @@ const config = {
 		paths: {
 			base: dev ? '' : '/ufc_site',
 		},
-
+		
 		prerender: {
 			handleHttpError: ({ path, referrer, message }) => {
 			  // Ignore 404 errors for the /events route
@@ -29,6 +29,7 @@ const config = {
 			  throw new Error(message);
 			}
 		}
+		
 	}
 };
 
