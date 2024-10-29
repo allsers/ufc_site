@@ -117,6 +117,7 @@
     }
 
     .left, .right {
+        z-index: 1;
         display: flex;
         align-self: flex-end;
         flex-direction: column;
@@ -132,6 +133,7 @@
     }
 
     #lightning1 {
+        z-index: 1;
         position: absolute;
         object-fit: contain;
         height: 55vh;
@@ -141,6 +143,7 @@
     }
 
     #lightning2 {
+        z-index: 1;
         position: absolute;
         transform: scaleX(-1);
         height: 55vh;
@@ -187,6 +190,7 @@
         flex-direction: row;
         justify-content: center;
         align-items: center;
+        z-index: 3;
     }
 
     .card {
