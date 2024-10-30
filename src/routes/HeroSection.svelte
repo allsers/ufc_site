@@ -57,7 +57,7 @@
 		color: var(--color-text1);
 		font-family: var(--font-bebas);
 		font-size: clamp(2rem, 2.75vw, 2.75rem);
-		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 0.08em white;
 		position: fixed;
 		z-index: 2;
 	}

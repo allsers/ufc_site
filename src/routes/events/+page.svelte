@@ -69,5 +69,6 @@
 		padding: 1.2rem 0;
 		color: var(--color-text1);
 		font-family: var(--font-bebas);
+		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 0.15rem white;
 	}
 </style>

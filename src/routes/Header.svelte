@@ -48,18 +48,18 @@
 <style>
     header {
         display: flex;
+        justify-content: center;
         width: 100%;
         position: fixed;
         top: 0;
         left: 0;
-        width: 100%;
         z-index: 1000;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         background: linear-gradient(to right, #0b0b16, #0f172c);
     }
 
     nav {
-        width: 100%;
+        width: 75%;
         display: flex;
         justify-content: center;
     }
@@ -122,6 +122,7 @@
         font-size: 2.5rem;
         padding: 0 0rem;
         background: linear-gradient(45deg, #ff4e50, #f9d423);
+        text-shadow: 0em 0em 5em currentColor;
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;

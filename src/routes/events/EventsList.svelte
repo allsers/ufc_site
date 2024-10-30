@@ -172,7 +172,6 @@
 		}
 	}
 	@media screen and (max-height: 1000px) {
-
 		:global(#card) {
 			height: auto;
 		}
