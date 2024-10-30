@@ -141,6 +141,7 @@
             transition: none;
         }
     }
+    
     @media (max-width: 768px) {
         ul {
             justify-content: center;
