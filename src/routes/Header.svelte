@@ -122,7 +122,7 @@
         font-size: 2.5rem;
         padding: 0 0rem;
         background: linear-gradient(45deg, #ff4e50, #f9d423);
-        text-shadow: 0em 0em 5em currentColor;
+        text-shadow: 0em 0em 10em currentColor;
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;

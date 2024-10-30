@@ -25,6 +25,7 @@
 
 <style>
     #section1 {
+        background-color: (9,9,19,1);
 		background-attachment: fixed;
 		background-position: center;
 		background-size:cover;

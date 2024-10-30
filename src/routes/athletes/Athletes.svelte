@@ -34,10 +34,12 @@
     <ul id="athletesHTML">
         {#each Object.values(athletes) as athlete}
             <li id="athlete_card">
-                <img id="fighter_img" src = {athlete.image} alt="{athlete.name}"/>
+                <div class="media">
+                    <img id="fighter_img" src = {athlete.image} alt="{athlete.name}"/>
+                </div>
                 <div class="text">
                     <p id="name">{athlete.name}</p>
-                    <p id="record">{athlete.record}</p>
+                    <p id="record">{athlete.record} (W-L-D)</p>
                     <p id="weight_class">{athlete.weight_class}</p> 
                 </div>
             </li>
@@ -95,8 +97,8 @@
         animation-name: scaleUp;
         animation-duration: 0.3s;
         animation-fill-mode: both;
-        
-        
+        height: 50vh;
+    
     }
 
     #fighter_img {
@@ -107,9 +109,16 @@
         object-fit: cover;
     }
 
+    .media {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
     .text {
         color: white;
-        font-size: 1.5rem;
+        font-size: 2rem;
         padding: 0.5rem;
         display: flex;
         flex-direction: column;
@@ -121,13 +130,13 @@
     }
 
     #name {
-        font-size: 1.4rem;
+        font-size: 1.75rem;
         font-weight: bold;
         margin: 0.5rem 0;
     }
 
     #record, #weight_class {
-        font-size: 1.2rem;
+        font-size: 1.5rem;
         margin: 0.25rem 0;
     }
 </style>
