@@ -155,5 +155,8 @@
         nav button.logo {
             font-size: 2rem;
         }
+        nav {
+            width: 100%;
+        }
     }
 </style>
