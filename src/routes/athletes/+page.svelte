@@ -10,7 +10,6 @@
     import Athletes from './Athletes.svelte';
     import type { PageData } from './$types';
 
-    export let data: PageData;
     onMount(async () => {
     });
 </script>
