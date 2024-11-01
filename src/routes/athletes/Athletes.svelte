@@ -49,7 +49,6 @@
                         id="fighter_video"
                         src="https://www.youtube.com/embed/{athlete.video_id}?controls=0&rel=0&showinfo=0"
                         frameborder="0"
-                        height = "50%"
                         title="{athlete.name} Highlight Reel"
                         allow="autoplay; encrypted-media"
                         allowfullscreen>
@@ -111,7 +110,7 @@
         animation-name: scaleUp;
         animation-duration: 0.3s;
         animation-fill-mode: both;
-        height: 60vh;
+        height: 70vh;
         transform: 
             perspective(5000px)
             rotateY(0deg)
@@ -126,18 +125,21 @@
     .img_container {
         position: relative;
         width: 30vw;
-        height: 17vw;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         overflow: hidden;
         border-radius: 1.5% 1.5%;
+        padding: 0%;
         margin: 0;
     }
     
     #fighter_img {
         margin: 0;
-        top: 50%;
-        left: 50%;
-        width: auto;
-
+        padding: 0;
+        width: 100%;
+        height: 100%;
         object-fit: cover;
     }
 
@@ -160,7 +162,6 @@
 
     .text {
         color: white;
-        font-size: 1.5rem;
         padding: 0.5rem;
         display: flex;
         flex-direction: column;
@@ -172,13 +173,13 @@
     }
 
     #name {
-        font-size: 1.75rem;
+        font-size: 3rem;
         font-weight: bold;
         margin: 0.5rem 0;
     }
 
     #record, #weight_class {
-        font-size: 1.5rem;
+        font-size: 1.75rem;
         margin: 0.25rem 0;
     }
     @media (max-width: 480px) {
