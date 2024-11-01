@@ -2,6 +2,7 @@
     import { fly } from 'svelte/transition';
     import background_image from '$lib/images/BackgroundImage.webp';
     import { onMount } from 'svelte';
+    
 
     onMount(() => {
         window.addEventListener('scroll', function() {

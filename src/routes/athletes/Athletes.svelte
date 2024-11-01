@@ -1,5 +1,6 @@
 <script lang="ts">
     import { onMount } from 'svelte';
+    
     import jon_jones_image from '$lib/images/jonjones.webp';
     import georges_st_pierre_image from '$lib/images/georgesst-pierre.webp';
     import anderson_silva_image from '$lib/images/andersonsilva.webp';
@@ -29,6 +30,22 @@
     };
 
     let videoElement: HTMLVideoElement;
+    import svelteTilt from 'vanilla-tilt-svelte';
+    import type { SSVTProps } from 'vanilla-tilt-svelte';
+
+    let tiltOptions: SSVTProps = {
+        scale: 1,
+        speed: 400,
+        max: 3,
+        perspective: 5000, 
+        transition: true, 
+        reset: true,
+        reverse: false, 
+        startX: 0,
+        startY: 0,
+        axis: null,
+        glare: false,
+    } 
 
     onMount(() => {
         if (videoElement) {
@@ -40,7 +57,8 @@
 <div class="cards_container">
     <ul id="athletesHTML">
         {#each Object.values(athletes) as athlete}
-            <li id="athlete_card">
+
+            <li id="athlete_card" use:svelteTilt={tiltOptions}>
                 <div class="media">
                     <div class="img_container">
                         <img id="fighter_img" src={athlete.image} alt="{athlete.name}" />
@@ -93,9 +111,14 @@
         padding: 0;
         margin: 0;  
         gap: 1.75rem; 
+        transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+        animation-name: scaleUp;
+        animation-duration: 0.3s;
+        animation-fill-mode: both;
     }
 
     #athlete_card {
+        transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
         border-radius: 10px;
         width: 60vw;
         margin: 0;
@@ -106,19 +129,11 @@
         background-color: #17161e;
         box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
         overflow: hidden;
-        transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
-        animation-name: scaleUp;
-        animation-duration: 0.3s;
-        animation-fill-mode: both;
         height: 70dvh;
-        transform: 
-            perspective(5000px)
-            rotateY(20deg)
-            rotateX(0deg);
+
     }
 
     #athlete_card:hover {
-        transform: scale(1.05);
         box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.7);
     }
 
@@ -170,6 +185,8 @@
         flex-grow: 1;
         text-align: left; 
         font-family: var(--font-bebas);
+        transform-style: preserve-3d;
+        transform: perspective(3000px);
     }
 
     #name {

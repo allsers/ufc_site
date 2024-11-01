@@ -15,6 +15,7 @@
     "braces": "^3.0.3",
     "chokidar": "^3.6.0",
     "code-red": "^1.0.4",
+    "compress-images": "^2.0.5",
     "cookie": "^0.6.0",
     "css-tree": "^2.3.1",
     "csv": "^6.3.10",
@@ -66,6 +67,8 @@
     "to-regex-range": "^5.0.1",
     "totalist": "^3.0.1",
     "typescript": "^5.5.4",
+    "vanilla-tilt": "^1.8.1",
+    "vanilla-tilt-svelte": "^1.0.4",
     "vite": "^5.4.9",
     "vitefu": "^0.2.5"
   },
