@@ -1,6 +1,7 @@
 <script lang="ts">
     import { onMount } from 'svelte';
     import jon_jones_image from '$lib/images/jonjones.webp';
+    import jon_jones_video from '$lib/video/jon_jones.mp4';
     import georges_st_pierre_image from '$lib/images/georgesst-pierre.webp';
     import anderson_silva_image from '$lib/images/andersonsilva.webp';
 
@@ -10,23 +11,30 @@
             record: '27-1-0',
             weight_class: 'Heavyweight',
             image: jon_jones_image,
+            video_id: "ebeQBYvWKsw"
         },
         georges_st_pierre: {
             name: 'Georges St-Pierre',
             record: '26-2-0',
             weight_class: 'Welterweight',
             image: georges_st_pierre_image,
+            video_id: "S5ZqBX9SMeQ"
         },
         anderson_silva: {
             name: 'Anderson Silva',
             record: '34-11-0',
             weight_class: 'Middleweight',
             image: anderson_silva_image,
+            video_id: "c96FlEr1V20"
         }
-    }
-    onMount(async () => {
+    };
 
+    let videoElement: HTMLVideoElement;
 
+    onMount(() => {
+        if (videoElement) {
+            videoElement.setAttribute('loading', 'lazy');
+        }
     });
 </script>
 
@@ -35,7 +43,15 @@
         {#each Object.values(athletes) as athlete}
             <li id="athlete_card">
                 <div class="media">
-                    <img id="fighter_img" src = {athlete.image} alt="{athlete.name}"/>
+                    <img id="fighter_img" src={athlete.image} alt="{athlete.name}" />
+                    <iframe
+                        id="fighter_video"
+                        src="https://www.youtube.com/embed/{athlete.video_id}?controls=0&rel=0&showinfo=0"
+                        frameborder="0"
+                        title="{athlete.name} Highlight Reel"
+                        allow="autoplay; encrypted-media"
+                        allowfullscreen>
+                    </iframe>
                 </div>
                 <div class="text">
                     <p id="name">{athlete.name}</p>
@@ -75,16 +91,12 @@
         list-style-type: none;
         padding: 0;
         margin: 0;  
-        gap: 1.5rem; /* Set spacing between cards */
-        transform: 
-            perspective(5000px)
-            rotateY(0deg)
-            rotateX(0deg);
+        gap: 1.75rem; 
     }
 
     #athlete_card {
         border-radius: 10px;
-        width: 50vw;
+        width: 60vw;
         margin: 0;
         display: flex;
         flex-direction: row;
@@ -97,14 +109,30 @@
         animation-name: scaleUp;
         animation-duration: 0.3s;
         animation-fill-mode: both;
-        height: 50vh;
-    
+        height: 55vh;
+        transform: 
+            perspective(5000px)
+            rotateY(0deg)
+            rotateX(0deg);
+    }
+
+    #athlete_card:hover {
+        transform: scale(1.05);
+        box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.7);
     }
 
     #fighter_img {
         margin: 0;
-        width: 20vw;
-        height: 20vw;
+        width: 30vw;
+        height: 17vw;
+        border-radius: 1.5%;
+        object-fit: cover;
+    }
+
+    #fighter_video {
+        margin: 0;
+        width: 30vw;
+        height: 17vw;
         border-radius: 1.5%;
         object-fit: cover;
     }
@@ -112,18 +140,20 @@
     .media {
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
+        justify-content: center;
+        align-items: center;
+        padding: 0.5rem;
+        row-gap: 1rem;
     }
 
     .text {
         color: white;
-        font-size: 2rem;
+        font-size: 1.5rem;
         padding: 0.5rem;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: center;
+        align-items: flex-start;
         flex-grow: 1;
         text-align: left; 
         font-family: var(--font-bebas);
@@ -138,5 +168,20 @@
     #record, #weight_class {
         font-size: 1.5rem;
         margin: 0.25rem 0;
+    }
+    @media (max-width: 480px) {
+        #athlete_card {
+            width: 90vw;
+            height: 60vh;
+        }
+
+        #fighter_img {
+            width: 50vw;
+            height: 80vw;
+        }
+        #fighter_video {
+            width: 50vw;
+            height: 30vw;
+        }
     }
 </style>
