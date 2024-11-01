@@ -1,7 +1,6 @@
 <script lang="ts">
     import { onMount } from 'svelte';
     import jon_jones_image from '$lib/images/jonjones.webp';
-    import jon_jones_video from '$lib/video/jon_jones.mp4';
     import georges_st_pierre_image from '$lib/images/georgesst-pierre.webp';
     import anderson_silva_image from '$lib/images/andersonsilva.webp';
 
@@ -43,11 +42,14 @@
         {#each Object.values(athletes) as athlete}
             <li id="athlete_card">
                 <div class="media">
-                    <img id="fighter_img" src={athlete.image} alt="{athlete.name}" />
+                    <div class="img_container">
+                        <img id="fighter_img" src={athlete.image} alt="{athlete.name}" />
+                    </div>
                     <iframe
                         id="fighter_video"
                         src="https://www.youtube.com/embed/{athlete.video_id}?controls=0&rel=0&showinfo=0"
                         frameborder="0"
+                        height = "50%"
                         title="{athlete.name} Highlight Reel"
                         allow="autoplay; encrypted-media"
                         allowfullscreen>
@@ -109,7 +111,7 @@
         animation-name: scaleUp;
         animation-duration: 0.3s;
         animation-fill-mode: both;
-        height: 55vh;
+        height: 60vh;
         transform: 
             perspective(5000px)
             rotateY(0deg)
@@ -121,11 +123,21 @@
         box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.7);
     }
 
-    #fighter_img {
-        margin: 0;
+    .img_container {
+        position: relative;
         width: 30vw;
         height: 17vw;
-        border-radius: 1.5%;
+        overflow: hidden;
+        border-radius: 1.5% 1.5%;
+        margin: 0;
+    }
+    
+    #fighter_img {
+        margin: 0;
+        top: 50%;
+        left: 50%;
+        width: auto;
+
         object-fit: cover;
     }
 
