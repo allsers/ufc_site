@@ -70,7 +70,7 @@
             transform: scale(0.9);
         }
         to {
-            transform: scale(1);
+            transform: none;
         }
     }
 
@@ -113,7 +113,7 @@
         height: 70vh;
         transform: 
             perspective(5000px)
-            rotateY(0deg)
+            rotateY(20deg)
             rotateX(0deg);
     }
 
@@ -188,9 +188,9 @@
             height: 60vh;
         }
 
-        #fighter_img {
+        .img_container {
             width: 50vw;
-            height: 80vw;
+            height: 70vw;
         }
         #fighter_video {
             width: 50vw;
