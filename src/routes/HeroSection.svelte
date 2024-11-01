@@ -30,7 +30,7 @@
 		background-position: center;
 		background-size:cover;
 		margin: 0;
-		min-height: 100vh;
+		height: 100dvh;
 		width: 100%;
 		display: flex;
 		align-items: center;
