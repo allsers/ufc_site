@@ -186,21 +186,22 @@
         
         #name {
             font-size: 2rem;
-            font-weight: bold;
-            margin: 0.5rem 0;
+        }
+        #record, #weight_class {
+            font-size: 1.25rem;
         }
         #athlete_card {
             width: 90vw;
-            height: 60dvh;
+            height: 125vw;
         }
 
         .img_container {
-            width: 52vw;
-            height: 70vw;
+            width: 54vw;
+            height: 72vw;
         }
         #fighter_video {
-            width: 52vw;
-            height: 32vw;
+            width: 54vw;
+            height: 34vw;
         }
     }
 </style>
