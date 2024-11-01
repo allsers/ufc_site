@@ -156,19 +156,19 @@
 
 	@media screen and (max-width: 480px) {
 		:global(#event) {
-			font-size: 1rem;
+			font-size: 1.15rem;
 		}
 		:global(#fighters) {
-			font-size: 0.8rem;
+			font-size: 0.95rem;
 		}
 		:global(#date) {
-			font-size: 0.75rem;
+			font-size: 0.9rem;
 		}
 		:global(#location) {
-			font-size: 0.7rem;
+			font-size: 0.85rem;
 		}
 		:global(#card) {
-			width: 55%;
+			width: 65%;
 		}
 	}
 	@media screen and (max-height: 1000px) {
