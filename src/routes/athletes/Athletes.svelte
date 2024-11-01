@@ -110,7 +110,7 @@
         animation-name: scaleUp;
         animation-duration: 0.3s;
         animation-fill-mode: both;
-        height: 70vh;
+        height: 70dvh;
         transform: 
             perspective(5000px)
             rotateY(20deg)
@@ -183,18 +183,24 @@
         margin: 0.25rem 0;
     }
     @media (max-width: 480px) {
+        
+        #name {
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 0.5rem 0;
+        }
         #athlete_card {
             width: 90vw;
-            height: 60vh;
+            height: 60dvh;
         }
 
         .img_container {
-            width: 50vw;
+            width: 52vw;
             height: 70vw;
         }
         #fighter_video {
-            width: 50vw;
-            height: 30vw;
+            width: 52vw;
+            height: 32vw;
         }
     }
 </style>

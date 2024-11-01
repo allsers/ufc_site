@@ -1,6 +1,6 @@
 
 <svelte:head>
-	<title>UFC</title>
+	<title>UFC Events</title>
 	<meta name="description" content="About this app" />
 </svelte:head>
 
