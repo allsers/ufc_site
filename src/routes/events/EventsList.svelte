@@ -1,7 +1,22 @@
 <script lang="ts">
     import { onMount } from 'svelte';
     import type { PageData } from './$types';
+	import svelteTilt from 'vanilla-tilt-svelte';
+    import type { SSVTProps } from 'vanilla-tilt-svelte';
 
+    let tiltOptions: SSVTProps = {
+        scale: 1.05,
+        speed: 200,
+        max: 8,
+        perspective: 5000, 
+        transition: true, 
+        reset: true,
+        reverse: false, 
+        startX: 0,
+        startY: 0,
+        axis: null,
+        glare: false,
+    } 
     export let data: PageData;
 	
 	$: events = data.data.events;
@@ -31,7 +46,7 @@
 <div id="cardsContainer">
     <ol id="eventsHTML">
         {#each events as event}
-            <li id="card">
+            <li id="card" use:svelteTilt={tiltOptions}>
                 <p id="event">{event.event}</p>
                 <p id="fighters">{event.fighters}</p>
                 <p id="date">{event.date}</p>
@@ -47,7 +62,7 @@
 			transform: scale(0.9);
 		}
 		to {
-			transform: scale(1);
+		
 		}
 	}
 
