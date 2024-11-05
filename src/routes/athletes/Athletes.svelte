@@ -4,32 +4,47 @@
     import jon_jones_image from '$lib/images/jonjones.webp';
     import georges_st_pierre_image from '$lib/images/georgesst-pierre.webp';
     import anderson_silva_image from '$lib/images/andersonsilva.webp';
+    import khabib_nurmagomedov_image from '$lib/images/khabib-nurmagomedov.webp';
+    import conor_mcgregor_image from '$lib/images/conormcgregor.webp';
 
     export const athletes = {
         jon_jones: {
             name: 'Jon Jones',
-            record: '27-1-0',
+            record: '27 - 1 - 0',
             weight_class: 'Heavyweight',
             image: jon_jones_image,
             video_id: "ebeQBYvWKsw"
         },
         georges_st_pierre: {
             name: 'Georges St-Pierre',
-            record: '26-2-0',
+            record: '26 - 2 - 0',
             weight_class: 'Welterweight',
             image: georges_st_pierre_image,
             video_id: "S5ZqBX9SMeQ"
         },
         anderson_silva: {
             name: 'Anderson Silva',
-            record: '34-11-0',
+            record: '34 - 11 -0',
             weight_class: 'Middleweight',
             image: anderson_silva_image,
             video_id: "c96FlEr1V20"
+        },
+        khabib_nurmagomedov: {
+            name: 'Khabib Nurmagomedov',
+            record: '29 - 0 - 0',
+            weight_class: 'Lightweight',
+            image: khabib_nurmagomedov_image,
+            video_id: "0rvIV_DGT1M"
+        },
+        conor_mcgregor: {
+            name: 'Conor McGregor',
+            record: '22 - 5 - 0',
+            weight_class: 'Lightweight',
+            image: conor_mcgregor_image,
+            video_id: "3mPPMCa8Nxw"
         }
     };
 
-    let videoElement: HTMLVideoElement;
     import svelteTilt from 'vanilla-tilt-svelte';
     import type { SSVTProps } from 'vanilla-tilt-svelte';
 
@@ -47,11 +62,6 @@
         glare: false,
     } 
 
-    onMount(() => {
-        if (videoElement) {
-            videoElement.setAttribute('loading', 'lazy');
-        }
-    });
 </script>
 
 <div class="cards_container">
@@ -61,20 +71,18 @@
             <li id="athlete_card" use:svelteTilt={tiltOptions}>
                 <div class="media">
                     <div class="img_container">
-                        <img id="fighter_img" src={athlete.image} alt="{athlete.name}" />
+                        <img id="fighter_img" src={athlete.image} alt="{athlete.name}" loading="lazy" />
                     </div>
-                    <iframe
+                    <iframe loading="lazy"
                         id="fighter_video"
                         src="https://www.youtube.com/embed/{athlete.video_id}?controls=0&rel=0&showinfo=0"
                         frameborder="0"
-                        title="{athlete.name} Highlight Reel"
-                        allow="autoplay; encrypted-media"
-                        allowfullscreen>
+                        title="{athlete.name} Highlight Reel">
                     </iframe>
                 </div>
                 <div class="text">
                     <p id="name">{athlete.name}</p>
-                    <p id="record">{athlete.record} (W-L-D)</p>
+                    <p id="record">{athlete.record} (W - L - D)</p>
                     <p id="weight_class">{athlete.weight_class}</p> 
                 </div>
             </li>
@@ -139,7 +147,7 @@
 
     .img_container {
         position: relative;
-        width: 30vw;
+        width: 32vw;
         height: 100%;
         display: flex;
         justify-content: center;
@@ -160,7 +168,7 @@
 
     #fighter_video {
         margin: 0;
-        width: 30vw;
+        width: 32vw;
         height: 17vw;
         border-radius: 1.5%;
         object-fit: cover;
@@ -171,7 +179,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding: 0.5rem;
+        padding: 0.1rem;
         row-gap: 1rem;
     }
 
