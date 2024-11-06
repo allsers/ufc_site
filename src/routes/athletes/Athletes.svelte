@@ -62,22 +62,35 @@
         glare: false,
     } 
 
+    let loading = {};
+    function handleVideoLoad(athleteName) {
+        loading[athleteName] = false;
+    }
+
+    onMount(() => {
+        Object.keys(athletes).forEach(name => {
+            loading[name] = true;
+        });
+    });
 </script>
 
 <div class="cards_container">
     <ul id="athletesHTML">
         {#each Object.values(athletes) as athlete}
-
             <li id="athlete_card" use:svelteTilt={tiltOptions}>
                 <div class="media">
                     <div class="img_container">
                         <img id="fighter_img" src={athlete.image} alt="{athlete.name}" loading="lazy" />
                     </div>
-                    <iframe loading="lazy"
+                    <iframe
                         id="fighter_video"
-                        src="https://www.youtube.com/embed/{athlete.video_id}?controls=0&rel=0&showinfo=0"
+                        src="https://www.youtube-nocookie.com/embed/{athlete.video_id}?controls=0&rel=0&showinfo=0"
                         frameborder="0"
-                        title="{athlete.name} Highlight Reel">
+                        class:fade-in={!loading[athlete.name]}
+                        title="{athlete.name} Highlight Reel"
+                        loading="lazy"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        on:load={handleVideoLoad}>
                     </iframe>
                 </div>
                 <div class="text">
@@ -98,6 +111,19 @@
         to {
             transform: none;
         }
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    .fade-in {
+        animation: fadeIn 1s ease-in-out;
     }
 
     .cards_container {
@@ -138,7 +164,6 @@
         box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
         overflow: hidden;
         height: 70dvh;
-
     }
 
     #athlete_card:hover {
@@ -181,6 +206,7 @@
         align-items: center;
         padding: 0.1rem;
         row-gap: 1rem;
+        position: relative;
     }
 
     .text {
@@ -207,8 +233,8 @@
         font-size: 1.75rem;
         margin: 0.25rem 0;
     }
+
     @media (max-width: 480px) {
-        
         #name {
             font-size: 2rem;
         }
