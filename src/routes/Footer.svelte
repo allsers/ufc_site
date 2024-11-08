@@ -32,7 +32,7 @@
 				<ul>
 					<li><a href="{base}/terms"><i class="fas fa-file-contract"></i> Terms</a></li>
 					<li><a href="{base}/privacy-policy"><i class="fas fa-user-shield"></i> Privacy Policy</a></li>
-					<li><a href="{base}/"><i class="fas fa-ad"></i> Ad Choices</a></li>
+					<li><a href="https://optout.networkadvertising.org/?c=1"><i class="fas fa-ad"></i> Ad Choices</a></li>
 				</ul>
 			</div>
 		</div>
