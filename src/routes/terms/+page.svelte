@@ -14,7 +14,7 @@
         <strong>OWNERSHIP OF SITE; AGREEMENT TO TERMS OF USE</strong>
     </p>
     <p>These Terms and Conditions of Use (the “Terms of Use”) apply to all Ultimate Fighting Championship® web sites, including without limitation, those located at
-        <a href="allsers.github.io/ufc_site">allsers.github.io/ufc_site</a> and all associated sites linked to allsers.github.io by Aleksander Ekman. BY USING THE SITE, YOU AGREE TO THESE TERMS OF USE; IF YOU DO NOT AGREE, DO NOT USE THE SITE.
+        <a href="{base}/">allsers.github.io/ufc_site</a> and all associated sites linked to allsers.github.io by Aleksander Ekman. BY USING THE SITE, YOU AGREE TO THESE TERMS OF USE; IF YOU DO NOT AGREE, DO NOT USE THE SITE.
     </p>
     <p>
         <strong>COPYRIGHT NOTICE</strong>
