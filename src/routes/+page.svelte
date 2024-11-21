@@ -18,5 +18,20 @@
 {#if FightersSection}
   <svelte:component this={FightersSection} />
 {:else}
-  <p>Loading fighters...</p>
+  <section id="section2">
+
+  </section>
 {/if}
+
+<style>
+  #section2 {
+    background: radial-gradient(circle, rgba(38,38,78,1) 0%, rgba(9,9,19,1) 45%);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-transform: uppercase;
+    z-index: 2;
+    overflow: hidden;
+    height: 100vh;
+  }
+</style>

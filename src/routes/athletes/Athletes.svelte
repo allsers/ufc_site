@@ -1,5 +1,6 @@
 <script lang="ts">
     import { onMount } from 'svelte';
+    import { fade } from 'svelte/transition';
     
     import jon_jones_image from '$lib/images/jonjones.webp';
     import georges_st_pierre_image from '$lib/images/georgesst-pierre.webp';
@@ -24,7 +25,7 @@
         },
         anderson_silva: {
             name: 'Anderson Silva',
-            record: '34 - 11 -0',
+            record: '34 - 11 - 0',
             weight_class: 'Middleweight',
             image: anderson_silva_image,
             video_id: "c96FlEr1V20"
@@ -62,14 +63,18 @@
         glare: false,
     } 
 
-    let loading = {};
-    function handleVideoLoad(athleteName) {
-        loading[athleteName] = false;
+    let video = {};
+    function playVideo(athlete) {
+        video[athlete.name] = true;
+    }
+
+    function YtThumbnail({ videoId }: { videoId: string }) {
+        return `https://img.youtube.com/vi/${videoId}/0.jpg`;
     }
 
     onMount(() => {
         Object.keys(athletes).forEach(name => {
-            loading[name] = true;
+            video[name] = false;
         });
     });
 </script>
@@ -82,16 +87,21 @@
                     <div class="img_container">
                         <img id="fighter_img" src={athlete.image} alt="{athlete.name}" loading="lazy" />
                     </div>
-                    <iframe
-                        id="fighter_video"
-                        src="https://www.youtube-nocookie.com/embed/{athlete.video_id}?controls=0&rel=0&showinfo=0"
-                        frameborder="0"
-                        class:fade-in={!loading[athlete.name]}
-                        title="{athlete.name} Highlight Reel"
-                        loading="lazy"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        on:load={handleVideoLoad}>
-                    </iframe>
+                    {#if video[athlete.name]}
+                        <iframe transition:fade={{ duration: 500 }}
+                            id="fighter_video"
+                            src="https://www.youtube-nocookie.com/embed/{athlete.video_id}?autoplay=1"
+                            frameborder="0"
+                            title="{athlete.name} Highlight Reel"
+                            loading="lazy"
+                            allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+                        ></iframe>
+                    {:else}
+                        <div class="thumbnail-container">
+                            <img id="thumbnail" src={YtThumbnail({ videoId: athlete.video_id})} alt="">
+                            <button id="play-button" on:click={() => playVideo(athlete)}><i class="fas fa-play"></i></button>
+                        </div>
+                    {/if}
                 </div>
                 <div class="text">
                     <p id="name">{athlete.name}</p>
@@ -111,19 +121,6 @@
         to {
             transform: none;
         }
-    }
-
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-        }
-        to {
-            opacity: 1;
-        }
-    }
-
-    .fade-in {
-        animation: fadeIn 1s ease-in-out;
     }
 
     .cards_container {
@@ -178,7 +175,7 @@
         justify-content: center;
         align-items: center;
         overflow: hidden;
-        border-radius: 1.5% 1.5%;
+        border-radius: 1.5px 1.5px;
         padding: 0%;
         margin: 0;
     }
@@ -191,10 +188,39 @@
         object-fit: cover;
     }
 
+    .thumbnail-container {
+        position: relative;
+        flex-direction: column;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #thumbnail {
+        margin: 0;
+        padding: 0;
+        width: 32vw;
+        height: 18vw;
+        object-fit: cover;
+    }
+
+    #play-button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 2.75rem;
+        color: #ececec;
+        text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    }
+
     #fighter_video {
         margin: 0;
         width: 32vw;
-        height: 17vw;
+        height: 18vw;
         border-radius: 1.5%;
         object-fit: cover;
     }

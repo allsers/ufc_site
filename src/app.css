@@ -44,21 +44,23 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-track {
-	background: #0b0b16;
+	background: #141428;
 	border-radius: 2px;
 }
 
 body::-webkit-scrollbar-thumb {
-	background: #141427;
-	border-radius: 2px;
+	transition: all 0.5s;
+	background: #262641;
+	border-radius: 4px;
 }
 
 body::-webkit-scrollbar-thumb:hover {
-	background: #191931;
+	transition: all 0.5s;
+	background: #2e2e54;
 }
 
 html, body {
-	background-color: black;
+	background-color: rgba(9,9,19,1);
   }
 h1,
 h2,
