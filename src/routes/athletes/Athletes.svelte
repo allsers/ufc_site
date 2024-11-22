@@ -228,7 +228,7 @@
     .media {
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-end;
         align-items: center;
         padding: 0.1rem;
         row-gap: 1rem;
@@ -277,6 +277,10 @@
             height: 72vw;
         }
         #fighter_video {
+            width: 54vw;
+            height: 34vw;
+        }
+        #thumbnail {
             width: 54vw;
             height: 34vw;
         }
