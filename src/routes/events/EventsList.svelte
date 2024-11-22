@@ -17,13 +17,9 @@
         axis: null,
         glare: false,
     } 
-	interface Props {
-		data: PageData;
-	}
-
-	let { data }: Props = $props();
+    export let data: PageData;
 	
-	let events = $derived(data.data.events);
+	$: events = data.data.events;
 
     onMount(() => {
         const section1 = document.getElementById('section1');

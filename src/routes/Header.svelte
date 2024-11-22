@@ -33,13 +33,13 @@
     <nav aria-label='Main navigation'>
         <ul role="menubar">
             <li role="menuitem">
-                <button onclick={() => goto(`${base}/events`)} tabindex="0" aria-label="View UFC Events" title="UFC Events" aria-current={$page.url.pathname === '/events' ? 'page' : undefined}>Events</button>
+                <button on:click={() => goto(`${base}/events`)} tabindex="0" aria-label="View UFC Events" title="UFC Events" aria-current={$page.url.pathname === '/events' ? 'page' : undefined}>Events</button>
             </li>
             <li role="menuitem">
-                <button onclick={() => goto(`${base}/`)} tabindex="0" class='logo' aria-label='UFC Home' title="Ultimate Fighting Championship Home" aria-current={$page.url.pathname === '/' ? 'page' : undefined}>UFC</button>
+                <button on:click={() => goto(`${base}/`)} tabindex="0" class='logo' aria-label='UFC Home' title="Ultimate Fighting Championship Home" aria-current={$page.url.pathname === '/' ? 'page' : undefined}>UFC</button>
             </li>
             <li role="menuitem">
-                <button onclick={() => goto(`${base}/athletes`)} tabindex="0" aria-label="View UFC athletes" title="Athletes Page" aria-current={$page.url.pathname === '/athletes' ? 'page' : undefined}>Athletes</button>
+                <button on:click={() => goto(`${base}/athletes`)} tabindex="0" aria-label="View UFC athletes" title="Athletes Page" aria-current={$page.url.pathname === '/athletes' ? 'page' : undefined}>Athletes</button>
             </li>
         </ul>
     </nav>

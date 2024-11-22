@@ -12,11 +12,7 @@
 	import EventsList from './EventsList.svelte';
 	import type { PageData } from './$types';
 
-	interface Props {
-		data: PageData;
-	}
-
-	let { data }: Props = $props();
+	export let data: PageData;
     onMount(async () => {
     });
 	

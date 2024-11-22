@@ -1,7 +1,7 @@
 <script lang="ts">
     import { onMount } from 'svelte';
     import HeroSection from './HeroSection.svelte';
-    let FightersSection: typeof import('./FightersSection.svelte').default | null = $state(null);
+    let FightersSection: typeof import('./FightersSection.svelte').default | null = null;
 
     onMount(async () => {
         const module = await import('./FightersSection.svelte');
@@ -16,7 +16,7 @@
 
 <HeroSection />
 {#if FightersSection}
-  <FightersSection />
+  <svelte:component this={FightersSection} />
 {:else}
   <section id="section2">
 
