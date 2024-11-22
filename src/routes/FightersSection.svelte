@@ -59,7 +59,7 @@
         </div>
         <div class="card">
             <div class="textbox">
-                <button on:click={() => goto(`${base}/athletes`)} aria-label="View our fighters">Check Out Our Fighters!</button>
+                <button onclick={() => goto(`${base}/athletes`)} aria-label="View our fighters">Check Out Our Fighters!</button>
             </div>
             <div class="fighters">
                 <div class="images">
