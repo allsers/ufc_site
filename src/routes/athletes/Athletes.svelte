@@ -183,8 +183,8 @@
     #fighter_img {
         margin: 0;
         padding: 0;
-        width: 100%;
-        height: 100%;
+        width: 32vw;
+        height: 22vw;
         object-fit: cover;
     }
 
@@ -230,7 +230,6 @@
         flex-direction: column;
         justify-content: flex-end;
         align-items: center;
-        padding: 0.1rem;
         row-gap: 1rem;
         position: relative;
     }
