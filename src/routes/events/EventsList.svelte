@@ -1,13 +1,36 @@
 <script lang="ts">
     import { onMount } from 'svelte';
     import type { PageData } from './$types';
-	import svelteTilt from 'vanilla-tilt-svelte';
-    import type { SSVTProps } from 'vanilla-tilt-svelte';
+	import type { TiltOptions } from 'vanilla-tilt';
+    import VanillaTilt from 'vanilla-tilt';
+	import type { Action } from 'svelte/action';
+
+	const svelteTilt: Action<HTMLElement, SSVTProps> = (node, options) => {
+        VanillaTilt.init(node, options);
+
+        return {
+            update(newOptions) {
+                (node as any).vanillaTilt.setOptions(newOptions);
+            },
+            destroy() {
+            // Cleanup when the node is removed
+            }
+        };
+    };
+    interface SSVTProps extends TiltOptions {
+        resetToStart: boolean;
+        maxGlare: number;
+        glarePrerender: boolean;
+        gyroscopeMaxAngleX: number;
+        gyroscopeMinAngleY: number;
+        gyroscopeMaxAngleY: number;
+        mouseEventElement: null;
+    }
 
     let tiltOptions: SSVTProps = {
-        scale: 1.05,
-        speed: 200,
-        max: 8,
+        scale: 1,
+        speed: 400,
+        max: 3,
         perspective: 5000, 
         transition: true, 
         reset: true,
@@ -16,7 +39,17 @@
         startY: 0,
         axis: null,
         glare: false,
-    } 
+        easing: "cubic-bezier(.03,.98,.52,.99)",
+        gyroscope: true,
+        gyroscopeMinAngleX: -45,
+        gyroscopeMaxAngleX: 45,
+        gyroscopeMinAngleY: -45,
+        gyroscopeMaxAngleY: 45,
+        resetToStart: true, 
+        maxGlare: 1, 
+        glarePrerender: false,
+        mouseEventElement: null, 
+    }
     export let data: PageData;
 	
 	$: events = data.data.events;

@@ -1,7 +1,9 @@
 <script lang="ts">
     import { onMount } from 'svelte';
     import { fade } from 'svelte/transition';
-    
+    import type { TiltOptions } from 'vanilla-tilt';
+    import VanillaTilt from 'vanilla-tilt';
+    import type { Action } from 'svelte/action';
     import jon_jones_image from '$lib/images/jonjones.webp';
     import georges_st_pierre_image from '$lib/images/georgesst-pierre.webp';
     import anderson_silva_image from '$lib/images/andersonsilva.webp';
@@ -45,9 +47,27 @@
             video_id: "3mPPMCa8Nxw"
         }
     };
+    const svelteTilt: Action<HTMLElement, SSVTProps> = (node, options) => {
+        VanillaTilt.init(node, options);
 
-    import svelteTilt from 'vanilla-tilt-svelte';
-    import type { SSVTProps } from 'vanilla-tilt-svelte';
+        return {
+            update(newOptions) {
+                (node as any).vanillaTilt.setOptions(newOptions);
+            },
+            destroy() {
+            // Cleanup when the node is removed
+            }
+        };
+    };
+    interface SSVTProps extends TiltOptions {
+        resetToStart: boolean;
+        maxGlare: number;
+        glarePrerender: boolean;
+        gyroscopeMaxAngleX: number;
+        gyroscopeMinAngleY: number;
+        gyroscopeMaxAngleY: number;
+        mouseEventElement: null;
+    }
 
     let tiltOptions: SSVTProps = {
         scale: 1,
@@ -61,7 +81,17 @@
         startY: 0,
         axis: null,
         glare: false,
-    } 
+        easing: "cubic-bezier(.03,.98,.52,.99)",
+        gyroscope: true,
+        gyroscopeMinAngleX: -45,
+        gyroscopeMaxAngleX: 45,
+        gyroscopeMinAngleY: -45,
+        gyroscopeMaxAngleY: 45,
+        resetToStart: true, 
+        maxGlare: 1, 
+        glarePrerender: false,
+        mouseEventElement: null, 
+    }
 
     let video = {};
     function playVideo(athlete) {
@@ -82,7 +112,7 @@
 <div class="cards_container">
     <ul id="athletesHTML">
         {#each Object.values(athletes) as athlete}
-            <li id="athlete_card" use:svelteTilt={tiltOptions}>
+            <li id="athlete_card" use:svelteTilt={(tiltOptions)}>
                 <div class="media">
                     <div class="img_container">
                         <img id="fighter_img" src={athlete.image} alt="{athlete.name}" loading="lazy" />
