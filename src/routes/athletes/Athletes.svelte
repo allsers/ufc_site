@@ -170,7 +170,7 @@
     .img_container {
         position: relative;
         width: 32vw;
-        height: 100%;
+        height: auto;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -229,7 +229,7 @@
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
-        align-items: center;
+        align-content: space-between;
         row-gap: 1rem;
         position: relative;
     }
@@ -272,6 +272,10 @@
         }
 
         .img_container {
+            width: 54vw;
+            height: 72vw;
+        }
+        #fighter_img {
             width: 54vw;
             height: 72vw;
         }
