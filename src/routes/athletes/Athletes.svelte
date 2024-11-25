@@ -160,7 +160,7 @@
         background-color: #17161e;
         box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
         overflow: hidden;
-        height: 70dvh;
+        height: 40vw;
     }
 
     #athlete_card:hover {
@@ -228,12 +228,10 @@
     }
 
     .media {
-        height: auto;
         display: flex;
         flex-direction: column;
-        justify-content: flex-end;
-        align-content: space-between;
-        row-gap: 0.75rem;
+        justify-content: space-between;
+        height: 40vw;
         position: relative;
     }
 
@@ -289,6 +287,12 @@
         #thumbnail {
             width: 54vw;
             height: 34vw;
+        }
+        .media {
+            height: 100%;
+        }
+        #athlete_card {
+            height: 108vw
         }
     }
 </style>
