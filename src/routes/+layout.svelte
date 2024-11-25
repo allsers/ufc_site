@@ -1,7 +1,20 @@
 <script lang="ts">
 	import Header from './Header.svelte';
+	import { onMount } from 'svelte';
 	import Footer from './Footer.svelte';
 	import '../app.css';
+	onMount(() => {
+		const handleScroll = () => {
+			const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+			
+			if (scrollTop + clientHeight >= scrollHeight) {
+				document.documentElement.style.backgroundColor = 'black';
+			} else {
+				document.documentElement.style.backgroundColor = 'rgba(9,9,19,1)';
+			}
+			};
+			window.addEventListener('scroll', handleScroll);
+	});
 </script>
 
 <div class="app">

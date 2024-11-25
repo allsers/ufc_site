@@ -30,15 +30,15 @@
     let tiltOptions: SSVTProps = {
         scale: 1,
         speed: 400,
-        max: 3,
-        perspective: 5000, 
+        max: 8,
+        perspective: 1000, 
         transition: true, 
         reset: true,
         reverse: false, 
         startX: 0,
         startY: 0,
         axis: null,
-        glare: false,
+        glare: true,
         easing: "cubic-bezier(.03,.98,.52,.99)",
         gyroscope: true,
         gyroscopeMinAngleX: -45,
@@ -46,7 +46,8 @@
         gyroscopeMinAngleY: -45,
         gyroscopeMaxAngleY: 45,
         resetToStart: true, 
-        maxGlare: 1, 
+        "max-glare": 0.1,
+		maxGlare: 0.1,
         glarePrerender: false,
         mouseEventElement: null, 
     }
@@ -116,7 +117,7 @@
 		min-height: 200vh;
 		position: relative;
 		content-visibility: auto;
-		contain-intrinsic-size: 1px 5000px;
+
 	}
 
 	:global(#card) {
@@ -134,14 +135,17 @@
 		background-color: #17161e;
 		box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
 		transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
-
-		transition: transform 0.3s ease-out forwards;
+		transform-style: preserve-3d;
 		view-timeline-name: --cardReveal;
 		view-timeline-axis: block;
 		animation-timeline: --cardReveal;
 		animation-name: scaleUp;
 		animation-range: entry 25% cover 30%;
 		animation-fill-mode: both;
+		perspective: 1000px;
+	}
+	:global(#card) > * {
+		transform: translateZ(25px);
 	}
 
 	:global(#card)::before {

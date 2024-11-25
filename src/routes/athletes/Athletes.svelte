@@ -61,7 +61,6 @@
     };
     interface SSVTProps extends TiltOptions {
         resetToStart: boolean;
-        maxGlare: number;
         glarePrerender: boolean;
         gyroscopeMaxAngleX: number;
         gyroscopeMinAngleY: number;
@@ -70,17 +69,17 @@
     }
 
     let tiltOptions: SSVTProps = {
-        scale: 1,
+        scale: 1.05,
         speed: 400,
         max: 3,
-        perspective: 5000, 
+        perspective: 1000, 
         transition: true, 
         reset: true,
         reverse: false, 
         startX: 0,
         startY: 0,
         axis: null,
-        glare: false,
+        glare: true,
         easing: "cubic-bezier(.03,.98,.52,.99)",
         gyroscope: true,
         gyroscopeMinAngleX: -45,
@@ -88,7 +87,7 @@
         gyroscopeMinAngleY: -45,
         gyroscopeMaxAngleY: 45,
         resetToStart: true, 
-        maxGlare: 1, 
+        "max-glare": 0.05,
         glarePrerender: false,
         mouseEventElement: null, 
     }
@@ -191,6 +190,11 @@
         box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
         overflow: hidden;
         height: 40vw;
+        transform-style: preserve-3d;
+        perspective: 1000px;
+    }
+    .text {
+        transform: translateZ(40px)
     }
 
     #athlete_card:hover {
