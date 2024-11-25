@@ -90,7 +90,7 @@
                     {#if video[athlete.name]}
                         <iframe transition:fade={{ duration: 500 }}
                             id="fighter_video"
-                            src="https://www.youtube-nocookie.com/embed/{athlete.video_id}?autoplay=1"
+                            src="https://www.youtube-nocookie.com/embed/{athlete.video_id}?autoplay=1&rel=0&modestbranding=1"
                             frameborder="0"
                             title="{athlete.name} Highlight Reel"
                             loading="lazy"
@@ -170,7 +170,7 @@
     .img_container {
         position: relative;
         width: 32vw;
-        height: auto;
+        height: 18vw;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -184,16 +184,18 @@
         margin: 0;
         padding: 0;
         width: 32vw;
-        height: 22vw;
+        height: 18vw;
         object-fit: cover;
     }
 
     .thumbnail-container {
+        height: 18vw;
         position: relative;
-        flex-direction: column;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
+
     }
 
     #thumbnail {
@@ -221,16 +223,17 @@
         margin: 0;
         width: 32vw;
         height: 18vw;
-        border-radius: 1.5%;
+        border-radius: 5px 5px;
         object-fit: cover;
     }
 
     .media {
+        height: auto;
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
         align-content: space-between;
-        row-gap: 1rem;
+        row-gap: 0.75rem;
         position: relative;
     }
 
