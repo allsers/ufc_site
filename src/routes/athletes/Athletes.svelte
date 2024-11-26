@@ -2,6 +2,7 @@
     import { onMount } from 'svelte';
     import { fade } from 'svelte/transition';
     import type { TiltOptions } from 'vanilla-tilt';
+    import { Parallax, ParallaxLayer } from 'svelte-parallax';
     import VanillaTilt from 'vanilla-tilt';
     import type { Action } from 'svelte/action';
     import jon_jones_image from '$lib/images/jonjones.webp';
@@ -69,7 +70,7 @@
     }
 
     let tiltOptions: SSVTProps = {
-        scale: 1.05,
+        scale: 1.01,
         speed: 400,
         max: 3,
         perspective: 1000, 
@@ -112,6 +113,7 @@
     <ul id="athletesHTML">
         {#each Object.values(athletes) as athlete}
             <li id="athlete_card" use:svelteTilt={(tiltOptions)}>
+                
                 <div class="media">
                     <div class="img_container">
                         <img id="fighter_img" src={athlete.image} alt="{athlete.name}" loading="lazy" />
@@ -138,6 +140,7 @@
                     <p id="weight_class">{athlete.weight_class}</p> 
                 </div>
             </li>
+
         {/each}
     </ul>
 </div>
@@ -194,12 +197,13 @@
         perspective: 1000px;
     }
 
+
     #athlete_card:hover {
         box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.7);
     }
 
     .text {
-        perspective: 1000px;
+
         color: white;
         padding: 0.5rem;
         display: flex;
@@ -209,12 +213,15 @@
         flex-grow: 1;
         text-align: left; 
         font-family: var(--font-bebas);
+        transform: translateZ(0);
         transform-style: preserve-3d;
-        transform: translateZ(50px);
     }
-
-    .text p {
+    
+    p {
+        transform: translateZ(30px);
+        text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         transform-style: preserve-3d;
+        transition: transform 0.3s ease;
         perspective: 1000px;
     }
     
@@ -284,6 +291,7 @@
         justify-content: space-between;
         height: 40vw;
         position: relative;
+        transform-style: preserve-3d;
     }
 
     #name {
