@@ -193,14 +193,31 @@
         transform-style: preserve-3d;
         perspective: 1000px;
     }
-    .text {
-        transform: translateZ(40px)
-    }
 
     #athlete_card:hover {
         box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.7);
     }
 
+    .text {
+        perspective: 1000px;
+        color: white;
+        padding: 0.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        flex-grow: 1;
+        text-align: left; 
+        font-family: var(--font-bebas);
+        transform-style: preserve-3d;
+        transform: translateZ(50px);
+    }
+
+    .text p {
+        transform-style: preserve-3d;
+        perspective: 1000px;
+    }
+    
     .img_container {
         position: relative;
         width: 32vw;
@@ -267,20 +284,6 @@
         justify-content: space-between;
         height: 40vw;
         position: relative;
-    }
-
-    .text {
-        color: white;
-        padding: 0.5rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-        flex-grow: 1;
-        text-align: left; 
-        font-family: var(--font-bebas);
-        transform-style: preserve-3d;
-        transform: perspective(3000px);
     }
 
     #name {
