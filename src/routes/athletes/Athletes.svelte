@@ -55,7 +55,7 @@
                 (node as any).vanillaTilt.setOptions(newOptions);
             },
             destroy() {
-            // Cleanup when the node is removed
+                (node as any).vanillaTilt.destroy();
             }
         };
     };
@@ -69,9 +69,9 @@
     }
 
     let tiltOptions: SSVTProps = {
-        scale: 1.05,
+        scale: 1,
         speed: 400,
-        max: 3,
+        max: 1,
         perspective: 1000, 
         transition: true, 
         reset: true,
@@ -178,6 +178,7 @@
     }
 
     #athlete_card {
+
         transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
         border-radius: 10px;
         width: 60vw;
@@ -189,12 +190,28 @@
         background-color: #17161e;
         box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
         overflow: hidden;
-        height: 40vw;
-        transform-style: preserve-3d;
+        height: 38vw;
         perspective: 1000px;
     }
+
     .text {
-        transform: translateZ(40px)
+
+        transform-style: preserve-3d;
+        color: white;
+        padding: 0.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        flex-grow: 1;
+        text-align: left; 
+        font-family: var(--font-bebas);
+        transform-style: preserve-3d; 
+        transform: translateZ(50px); 
+    }
+    .text p {
+        transform-style: preserve-3d;
+        transform: translateZ(20px);
     }
 
     #athlete_card:hover {
@@ -258,14 +275,15 @@
         width: 32vw;
         height: 18vw;
         border-radius: 5px 5px;
-        object-fit: cover;
+        object-fit: contain;
+
     }
 
     .media {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        height: 40vw;
+        height: 38vw;
         position: relative;
     }
 
@@ -280,8 +298,8 @@
         text-align: left; 
         font-family: var(--font-bebas);
         transform-style: preserve-3d;
-        transform: perspective(3000px);
-    }
+        transform: translateZ(50px);
+        }
 
     #name {
         font-size: 3rem;
