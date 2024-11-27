@@ -63,6 +63,7 @@
     "svelte": "^4.0.0",
     "svelte-check": "^4.0.1",
     "svelte-hmr": "^0.16.0",
+    "svelte-parallax": "^0.6.0",
     "tiny-glob": "^0.2.9",
     "to-regex-range": "^5.0.1",
     "totalist": "^3.0.1",

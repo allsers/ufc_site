@@ -28,7 +28,7 @@
     }
 
     let tiltOptions: SSVTProps = {
-        scale: 1,
+        scale: 1.05,
         speed: 400,
         max: 8,
         perspective: 1000, 
@@ -145,7 +145,7 @@
 		perspective: 1000px;
 	}
 	:global(#card) > * {
-		transform: translateZ(30px);
+		transform: translateZ(25px);
 	}
 
 	:global(#card)::before {
@@ -192,15 +192,24 @@
 		font-size: 1.6rem;
 		font-family: var(--font-header);
 		text-shadow: 10px 10px 15px #000000;
+		transform: translateZ(25px);
 	}
 	:global(#fighters) {
 		font-size: 1.5rem;
+		transform: translateZ(30px);
 	}
 	:global(#date) {
 		font-size: 1.3rem;
+		transform: translateZ(30px);
 	}
 	:global(#location) {
 		font-size: 1.1rem;
+		transform: translateZ(25px);
+	}
+	:global(#card p) {
+    	margin: 0;
+		color: var(--color-text1);
+		text-shadow: 6px 6px 8px #000000;
 	}
 	:global(#card p) {
     	margin: 0;
