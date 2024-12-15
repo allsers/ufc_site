@@ -27,7 +27,7 @@ To run the project locally, follow these steps:
    ```bash
    npm run dev****
 
-Alternatively, visit the site at allsers.github.io/ufc_site.
+Alternatively, visit the site at https://allsers.github.io/ufc_site.
 
 ### Project structure
 /ufc_site
