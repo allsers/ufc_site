@@ -16,7 +16,7 @@ impressive view over the top 5 UFC athletes.
 To run the project locally, follow these steps:
 1. Clone the repository:
    ```bash
-   git clone https://github.com/ditt-brukernavn/ufc_site.git
+   git clone https://github.com/allsers/ufc_site.git
    cd ufc_site
 
 2. Install package dependencies:
