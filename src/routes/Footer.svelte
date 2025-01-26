@@ -116,6 +116,7 @@
         color: var(--color-text1);
         transform: translateY(-2px);
     }
+    
 
     footer i {
         margin-right: 5px;
