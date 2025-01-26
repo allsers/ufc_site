@@ -1,4 +1,5 @@
-import adapter from '@sveltejs/adapter-static';
+import adapterStatic from '@sveltejs/adapter-static';
+import adapterVercel from '@sveltejs/adapter-vercel';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
 const dev = process.env.NODE_ENV === 'development';
@@ -8,15 +9,18 @@ const config = {
 	preprocess: vitePreprocess(),
 
 	kit: {
-		adapter: adapter({
-			pages: 'build',
-			assets: 'build',
-			fallback: 'index.html',
-			precompress: false,
-			strict: true
-		}),
+		adapter:
+			process.env.ADAPTER === 'VERCEL'
+				? adapterVercel()
+				: adapterStatic({
+						pages: 'build',
+						assets: 'build',
+						fallback: '404.html',
+						precompress: false,
+						strict: true
+					}),
 		paths: {
-			base: dev ? '' : '/ufc_site',
+			base: process.env.ADAPTER === "GITHUB_PAGES" ? '/ufc_site' : ''
 		},
 		
 		prerender: {

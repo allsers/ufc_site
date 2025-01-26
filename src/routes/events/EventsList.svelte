@@ -13,7 +13,7 @@
                 (node as any).vanillaTilt.setOptions(newOptions);
             },
             destroy() {
-            // Cleanup when the node is removed
+				(node as any).vanillaTilt.destroy();
             }
         };
     };
@@ -143,7 +143,9 @@
 		animation-fill-mode: both;
 		perspective: 1000px;
 	}
-
+	:global(#card) > * {
+		transform: translateZ(25px);
+	}
 
 	:global(#card)::before {
 		border-radius: 10px;
@@ -181,17 +183,14 @@
 		opacity: 1;
 	}
 
-	:global(#card p) {
-    	margin: 0;
-		color: var(--color-text1);
-	}
+
 	:global(#card p:nth-child(n+2)) {
     	font-family: var(--font-bebas);
 	}
 	:global(#event) {
 		font-size: 1.6rem;
 		font-family: var(--font-header);
-		text-shadow: 8px 8px 12px #000000;
+		text-shadow: 10px 10px 15px #000000;
 		transform: translateZ(25px);
 	}
 	:global(#fighters) {
@@ -205,6 +204,16 @@
 	:global(#location) {
 		font-size: 1.1rem;
 		transform: translateZ(25px);
+	}
+	:global(#card p) {
+    	margin: 0;
+		color: var(--color-text1);
+		text-shadow: 6px 6px 8px #000000;
+	}
+	:global(#card p) {
+    	margin: 0;
+		color: var(--color-text1);
+		text-shadow: 6px 6px 8px #000000;
 	}
 
 	@media screen and (max-width: 480px) {

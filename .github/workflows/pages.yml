@@ -26,7 +26,7 @@ jobs:
           cache: npm
 
       - name: Install dependencies
-        run: npm install
+        run: ADAPTER='GITHUB_PAGES' npm install
 
       - name: build
         env:
