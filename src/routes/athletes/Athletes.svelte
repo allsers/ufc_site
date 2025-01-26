@@ -266,6 +266,7 @@
     }
 
     .thumbnail-container {
+        z-index: 2;
         height: 18vw;
         position: relative;
         display: flex;
