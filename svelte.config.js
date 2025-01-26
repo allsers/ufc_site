@@ -28,8 +28,12 @@ const config = {
 			  // Otherwise, throw the error
 			  throw new Error(message);
 			}
+		},
+		files: {
+			hooks: {
+				server: 'src/hooks/hooks.server.ts'
+			}
 		}
-		
 	}
 };
 

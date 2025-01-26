@@ -96,7 +96,7 @@
 			transform: scale(0.9);
 		}
 		to {
-		
+			transform: none;
 		}
 	}
 
@@ -117,7 +117,6 @@
 		min-height: 200vh;
 		position: relative;
 		content-visibility: auto;
-
 	}
 
 	:global(#card) {

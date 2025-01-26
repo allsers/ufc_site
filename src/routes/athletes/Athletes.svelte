@@ -2,7 +2,6 @@
     import { onMount } from 'svelte';
     import { fade } from 'svelte/transition';
     import type { TiltOptions } from 'vanilla-tilt';
-    import { Parallax, ParallaxLayer } from 'svelte-parallax';
     import VanillaTilt from 'vanilla-tilt';
     import type { Action } from 'svelte/action';
     import jon_jones_image from '$lib/images/jonjones.webp';
@@ -195,6 +194,7 @@
         height: 40vw;
         transform-style: preserve-3d;
         perspective: 1000px;
+        content-visibility: auto;
     }
 
 

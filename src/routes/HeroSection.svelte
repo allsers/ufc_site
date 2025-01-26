@@ -43,7 +43,7 @@
 		background-position: center;
 		background-size:cover;
 		margin: 0;
-		height: 100dvh;
+		height: 100svh;
 		width: 100%;
 		display: flex;
 		align-items: center;

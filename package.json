@@ -15,8 +15,8 @@
     "braces": "^3.0.3",
     "chokidar": "^3.6.0",
     "code-red": "^1.0.4",
-    "compress-images": "^2.0.5",
-    "cookie": "^0.6.0",
+    "compress-images": "^1.9.9",
+    "cookie": "^1.0.2",
     "css-tree": "^2.3.1",
     "csv": "^6.3.10",
     "csv-parse": "^5.5.6",
@@ -63,7 +63,6 @@
     "svelte": "^4.0.0",
     "svelte-check": "^4.0.1",
     "svelte-hmr": "^0.16.0",
-    "svelte-parallax": "^0.6.0",
     "tiny-glob": "^0.2.9",
     "to-regex-range": "^5.0.1",
     "totalist": "^3.0.1",
@@ -88,7 +87,6 @@
   "description": "",
   "devDependencies": {
     "@sveltejs/adapter-static": "^3.0.5",
-    "@sveltejs/enhanced-img": "^0.3.9",
     "@types/node": "^22.7.5",
     "@types/papaparse": "^5.3.15",
     "gh-pages": "^6.2.0"
